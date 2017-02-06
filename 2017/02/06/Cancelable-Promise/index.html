@@ -84,22 +84,22 @@
 
 
 
-<meta name="description" content="使用React时难免会需要在异步操作返回时调用返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
+<meta name="description" content="使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
 
-“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an">
+“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cancelable Promise">
 <meta property="og:url" content="https://blooddrunk.github.io/2017/02/06/Cancelable-Promise/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="使用React时难免会需要在异步操作返回时调用返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
+<meta property="og:description" content="使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
 
-“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an">
-<meta property="og:updated_time" content="2017-02-06T16:33:06.000Z">
+“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmo">
+<meta property="og:updated_time" content="2017-02-06T16:43:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cancelable Promise">
-<meta name="twitter:description" content="使用React时难免会需要在异步操作返回时调用返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
+<meta name="twitter:description" content="使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
 
-“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an">
+“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmo">
 
 
 
@@ -397,7 +397,7 @@
       
 
       
-        <p>使用React时难免会需要在异步操作返回时调用返回时调用<code>setState()</code>，如果此时该Component已经Unmount, React会抛出类似下面的错误：</p>
+        <p>使用React时难免会需要在异步操作返回时调用<code>setState()</code>，如果此时该Component已经Unmount, React会抛出类似下面的错误：</p>
 <blockquote>
 <p>“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmounted component. This is a no-op. Please check the code for the ContactPage component.”</p>
 </blockquote>
@@ -406,7 +406,7 @@
 <p>介于现在普遍都在使用<strong>Fetch API</strong>和<strong>Promise</strong>，更好的办法是使用可被Cancel的Promise，一个简单的实现如下：</p>
 <a id="more"></a>
 <figure class="highlight javascript"><figcaption><span>cancelable promise</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> makeCancelable = <span class="function">(<span class="params">promise</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> hasCanceled_ = <span class="literal">false</span></div><div class="line"></div><div class="line">  <span class="keyword">const</span> wrappedPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    promise.then(<span class="function">(<span class="params">val</span>) =&gt;</span></div><div class="line">      hasCanceled_ ? reject(&#123;<span class="attr">isCanceled</span>: <span class="literal">true</span>&#125;) : resolve(val)</div><div class="line">    )</div><div class="line">    promise.catch(<span class="function">(<span class="params">error</span>) =&gt;</span></div><div class="line">      hasCanceled_ ? reject(&#123;<span class="attr">isCanceled</span>: <span class="literal">true</span>&#125;) : reject(error)</div><div class="line">    )</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">promise</span>: wrappedPromise,</div><div class="line">    cancel() &#123;</div><div class="line">      hasCanceled_ = <span class="literal">true</span>;</div><div class="line">    &#125;,</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>通过在原来返回Promise的调用外包裹一层<em>Higher Order Function</em>, 然后在必要时(<code>componentWillUnmount</code>)取消掉:</p>
+<p>通过在原来返回Promise的调用外包裹一层<em>Higher Order Function</em>(虽然实际上返回的是一个新的对象), 然后在必要时(<code>componentWillUnmount</code>)取消掉:</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> cancelablePromise = makeCancelable(</div><div class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> component.setState(&#123;...&#125;&#125;))</div><div class="line">);</div><div class="line"></div><div class="line">cancelablePromise</div><div class="line">  .promise</div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'resolved'</span>))</div><div class="line">  .catch(<span class="function">(<span class="params">reason</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'isCanceled'</span>, reason.isCanceled));</div><div class="line"></div><div class="line">cancelablePromise.cancel(); <span class="comment">// Cancel the promise</span></div></pre></td></tr></table></figure>
 <p><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.l7d37jad3" target="_blank" rel="external">Eric Elliott</a>大神给出了更完善的实现: <a href="https://github.com/ericelliott/speculation" target="_blank" rel="external">https://github.com/ericelliott/speculation</a></p>
 
