@@ -1,0 +1,849 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Swift,iOS," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="iOS有一些内置Controller，它们的视图是另一个MVC：UITabBarController, UISplitViewController, UINavigationController, UIPopoverController
+UITabBarController
+UITabBarController绘制在屏幕下方绘制了最多5个tab标签(如果超过5个会自动呈现一个管理超出部分的界面)，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用Swift语言开发iOS8 App： Multiple MVC">
+<meta property="og:url" content="http://blog.ryderxie.com/2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/index.html">
+<meta property="og:site_name" content="Ryder's Blog">
+<meta property="og:description" content="iOS有一些内置Controller，它们的视图是另一个MVC：UITabBarController, UISplitViewController, UINavigationController, UIPopoverController
+UITabBarController
+UITabBarController绘制在屏幕下方绘制了最多5个tab标签(如果超过5个会自动呈现一个管理超出部分的界面)，">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/6d325a28gw1eqpabtjcw4j20dw0okgnh.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/6d325a28gw1eqpabr9vblj210y0pm43e.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw690/6d325a28gw1eqpablssn3j20du0oi40e.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/6d325a28gw1eqpabhneqyj209i080js9.jpg">
+<meta property="og:updated_time" content="2017-02-06T14:50:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用Swift语言开发iOS8 App： Multiple MVC">
+<meta name="twitter:description" content="iOS有一些内置Controller，它们的视图是另一个MVC：UITabBarController, UISplitViewController, UINavigationController, UIPopoverController
+UITabBarController
+UITabBarController绘制在屏幕下方绘制了最多5个tab标签(如果超过5个会自动呈现一个管理超出部分的界面)，">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/mw690/6d325a28gw1eqpabtjcw4j20dw0okgnh.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '7543992',
+      author: 'jelinenaro'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.ryderxie.com/2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/"/>
+
+
+
+
+
+  <title> 用Swift语言开发iOS8 App： Multiple MVC | Ryder's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Ryder's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://blog.ryderxie.com/2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Ryder Xie">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ryder's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ryder's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                用Swift语言开发iOS8 App： Multiple MVC
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-30T23:19:49+08:00">
+                2015-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>iOS有一些内置Controller，它们的视图是另一个MVC：<code>UITabBarController</code>, <code>UISplitViewController</code>, <code>UINavigationController</code>, <code>UIPopoverController</code></p>
+<h3 id="UITabBarController"><a href="#UITabBarController" class="headerlink" title="UITabBarController"></a>UITabBarController</h3><p><img src="http://ww3.sinaimg.cn/mw690/6d325a28gw1eqpabtjcw4j20dw0okgnh.jpg" alt="UITabBarController"></p>
+<p><code>UITabBarController</code>绘制在屏幕下方绘制了最多5个tab标签(如果超过5个会自动呈现一个管理超出部分的界面)，上方呈现当前选定的tab的MVC。事实上，下方的tab栏的icon, title都是由<code>UITabBarController</code>包含的MVC的Controller的</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> tabBarItem: <span class="type">UITabBarItem</span>!</div><div class="line"></div></pre></td></tr></table></figure>
+<p>属性所决定。tar bar item通常在<em>storyboard</em>中拖放进来。</p>
+<h3 id="UISplitViewController"><a href="#UISplitViewController" class="headerlink" title="UISplitViewController"></a>UISplitViewController</h3><p><img src="http://ww4.sinaimg.cn/mw690/6d325a28gw1eqpabr9vblj210y0pm43e.jpg" alt="UISplitViewController"></p>
+<p><code>UISplitViewController</code>只包括两个MVC：通常左侧<em>Master</em>决定了右侧的<em>Detail</em>的内容(每次都会生成一个新的Detail)。只有在iPad和iPhone6+的横屏模式可以同时显示Master和Detail，在iPad竖屏时只显示Detail，滑动屏幕才能看到Master。在其他尺寸的设备中需要嵌入<code>UINavigationController</code>来让UISplitViewController正常工作，这是由<strong>Size Classes</strong>决定的</p>
+<h3 id="UINavigationController"><a href="#UINavigationController" class="headerlink" title="UINavigationController"></a>UINavigationController</h3><p><img src="http://ww3.sinaimg.cn/mw690/6d325a28gw1eqpablssn3j20du0oi40e.jpg" alt="UINavigationController"></p>
+<p><code>UINavigationController</code>大量运用于“设置”菜单中。可以把它想象成一个后进先出的Stack，最初的元素叫做<code>rootViewController</code>，最上面的元素叫做<code>visibleViewController</code>，它们都是<code>UINavigationController</code>的属性，每当在当前设置页面中点击一个子项，就相当于在上面push一个新项，而每点一次“后退”，就会把最上边的项pop掉(完全丢弃)。<code>UINavigationController</code>只负责呈现了上方的标题栏，下方的内容由Stack最上方的MVC所决定。甚至标题的内容，和标题栏的按钮也是由当前显示的MVC决定的(<code>navigationItem</code>属性)。</p>
+<h3 id="获得子MVC"><a href="#获得子MVC" class="headerlink" title="获得子MVC"></a>获得子MVC</h3><p><code>UITabBarController</code>, <code>UISplitViewController</code>, <code>UINavigationController</code>都一个数组属性表示它们包含的子MVC</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> viewControllers: [<span class="type">UIViewController</span>] &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</div><div class="line"></div></pre></td></tr></table></figure>
+<p>相反的，每一个<code>UIViewController</code>也有三个对应的属性表示它是否在<code>UITabBarController</code>, <code>UISplitViewController</code>, <code>UINavigationController</code>中</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> tabBarController: <span class="type">UITabBarController</span>? &#123; <span class="keyword">get</span> &#125;</div><div class="line"><span class="keyword">var</span> splitViewController: <span class="type">UISplitViewController</span>? &#123; <span class="keyword">get</span> &#125;</div><div class="line"><span class="keyword">var</span> navigationController: <span class="type">UINavigationController</span>? &#123; <span class="keyword">get</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">//在Master中获得Detail</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> detailVC = splitViewController?.viewControllers[<span class="number">1</span>] &#123;</div><div class="line">	...</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
+<h3 id="Segue"><a href="#Segue" class="headerlink" title="Segue"></a>Segue</h3><p>创建好了子MVC后，我们还需要调用它们，这就是<code>Segue</code>，主要有以下几种<code>Segue</code>：</p>
+<ul>
+<li>Show Segue(如果在<code>UINavigationController</code>中，被调用的MVC就会被添加进<code>UINavigationController</code>的顶端，否则会展示为Modal窗口)</li>
+<li>Show Detail Segue(如果在<code>UISplitViewController</code>中，会展示一个Detail MVC，否则类似Show Segue)</li>
+<li>Modal Segue(展示为模态窗口，不太会用到)</li>
+<li>Popover Segue(展示为一个popover窗口，点击窗口以外的区域就会关闭该窗口)</li>
+</ul>
+<p><strong>Segue每次都会创建一个新的MVC</strong>，旧的会被抛弃</p>
+<p><img src="http://ww4.sinaimg.cn/mw690/6d325a28gw1eqpabhneqyj209i080js9.jpg" alt="Segue"></p>
+<p>在storyboard中建立好Segue关系(通常是通过Control/右键拖动，比如在调用MVC中的一个按钮到目标MVC，点击这个按钮就会展示目标MVC)并填写好Segue的id后，往往还需要为目标MVC提供一定的初始化数据，为此在调用MVC中override<code>prepareForSegue</code>方法：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">prepareForSegue</span><span class="params">(segue: UIStoryboardSegue, sender: AnyObject?)</span></span> &#123;</div><div class="line">    <span class="keyword">if</span> <span class="keyword">let</span> identifier = segue.identifier &#123;</div><div class="line">        <span class="keyword">switch</span> identifier &#123;</div><div class="line">            <span class="keyword">case</span> “<span class="type">Show</span> <span class="type">Graph</span>”:</div><div class="line">                <span class="keyword">if</span> <span class="keyword">let</span> vc = segue.destinationViewController <span class="keyword">as</span>? <span class="type">CalcGraphController</span> &#123;</div><div class="line">                    vc.property1 = ...</div><div class="line">                    vc.callMethodToSetItUp(...)</div><div class="line">                &#125;</div><div class="line">            <span class="keyword">default</span>: <span class="keyword">break</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
+<p>第一个参数<code>segue</code>有两个重要的属性，第一个是<code>identifier</code>(在storyboard的Attribules inspector中设置），用来标识调用了哪个Segue，另一个<code>destinationViewController</code>表示目标MVC，可利用它暴露的借口来做一些初始化工作，注意它是AnyObject，需要转换类型</p>
+<p>需要注意的是，<code>prepareForSegue</code>执行的时候，<code>destinationViewController</code>中的outlets并没有被初始化，需要避免假设outlets有值而引发异常</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/30/Developing-iOS-8-Apps-with-Swift-Lifecycle/" rel="next" title="用Swift语言开发iOS8 App： 生命周期">
+                <i class="fa fa-chevron-left"></i> 用Swift语言开发iOS8 App： 生命周期
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/03/31/ToString-in-Swift/" rel="prev" title="Swift中的"toString"方法">
+                Swift中的"toString"方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/"
+           data-title="用Swift语言开发iOS8 App： Multiple MVC" data-url="http://blog.ryderxie.com/2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Ryder Xie" />
+          <p class="site-author-name" itemprop="name">Ryder Xie</p>
+          <p class="site-description motion-element" itemprop="description">マジヤばくね</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#UITabBarController"><span class="nav-number">1.</span> <span class="nav-text">UITabBarController</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UISplitViewController"><span class="nav-number">2.</span> <span class="nav-text">UISplitViewController</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UINavigationController"><span class="nav-number">3.</span> <span class="nav-text">UINavigationController</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得子MVC"><span class="nav-number">4.</span> <span class="nav-text">获得子MVC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Segue"><span class="nav-number">5.</span> <span class="nav-text">Segue</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryder Xie</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"blooddrunk"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
