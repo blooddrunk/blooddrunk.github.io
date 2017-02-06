@@ -91,7 +91,7 @@
 123456789101112let center = NSNotificationCenter.defaultCenter() // 获取用于系统通知的通知中心center.ad">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift中的NSNotification">
-<meta property="og:url" content="http://blog.ryderxie.com/2015/04/20/Swift-NSNotification/index.html">
+<meta property="og:url" content="https://blooddrunk.github.io/2015/04/20/Swift-NSNotification/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
 <meta property="og:description" content="NSNotification提供了在应用程序中广播和接受消息的方法。
 注册一个通知注册一个通知非常简单，获取默认的“通知中心”，然后调用addObserverForName方法
@@ -100,7 +100,7 @@
 123456789101112let center = NSNotificationCenter.defaultCenter() // 获取用于系统通知的通知中心center.ad">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw690/6d325a28gw1erc345st0uj20pc0g8gs7.jpg">
 <meta property="og:image" content="http://ww3.sinaimg.cn/mw690/6d325a28gw1erc3wr1koej20ou0aagqu.jpg">
-<meta property="og:updated_time" content="2017-02-06T14:51:04.000Z">
+<meta property="og:updated_time" content="2017-02-06T15:57:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift中的NSNotification">
 <meta name="twitter:description" content="NSNotification提供了在应用程序中广播和接受消息的方法。
@@ -136,7 +136,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ryderxie.com/2015/04/20/Swift-NSNotification/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2015/04/20/Swift-NSNotification/"/>
 
 
 
@@ -203,6 +203,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -278,7 +288,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.ryderxie.com/2015/04/20/Swift-NSNotification/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/04/20/Swift-NSNotification/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -368,6 +378,7 @@
 <p><img src="http://ww3.sinaimg.cn/mw690/6d325a28gw1erc345st0uj20pc0g8gs7.jpg" alt="addObserverForName"></p>
 <p>比如，监视用户在设置中改变字体的通知：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> center = <span class="type">NSNotificationCenter</span>.defaultCenter() <span class="comment">// 获取用于系统通知的通知中心</span></div><div class="line"></div><div class="line">center.addObserverForName(<span class="type">UIContentSizeCategoryDidChangeNotification</span> <span class="comment">// 要监视的通知的名称</span></div><div class="line">                    object: <span class="type">UIApplication</span>.sharedApplication(), <span class="comment">// 要见识的通知发送者(nil表示所有发送者)</span></div><div class="line">                    queue: <span class="type">NSOperationQueue</span>.mainQueue()) <span class="comment">// 用于执行接收到通知后要执行的闭包的队列</span></div><div class="line">&#123; notification <span class="keyword">in</span> <span class="comment">// 这其实是个trailing闭包，是第四个参数</span></div><div class="line">	<span class="comment">// ...</span></div><div class="line">    <span class="keyword">let</span> <span class="built_in">c</span> = notification.userInfo?[<span class="type">UIContentSizeCategoryNewValueKey</span>] <span class="comment">// 获取设置的新的字体，比如UIContentSizeCategorySmall</span></div><div class="line">	<span class="comment">// userInfo是随通知发送的包含相关信息的字典</span></div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="创建一个通知"><a href="#创建一个通知" class="headerlink" title="创建一个通知"></a>创建一个通知</h3><p>除了监听系统通知，我们自己也可以创建通知</p>
 <p><img src="http://ww3.sinaimg.cn/mw690/6d325a28gw1erc3wr1koej20ou0aagqu.jpg" alt="NSNotification"></p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> center = <span class="type">NSNotificationCenter</span>.defaultCenter() <span class="comment">// 获取用于系统通知的通知中心</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> notification = <span class="type">NSNotification</span>(name: <span class="type">GPXURL</span>.<span class="type">Notification</span>, object: <span class="keyword">self</span>, userInfo: [<span class="type">GPXURL</span>.<span class="type">Key</span>:url]) <span class="comment">// 创建一个通知</span></div><div class="line"></div><div class="line">center.postNotification(notification) <span class="comment">// 发送通知</span></div><div class="line"></div></pre></td></tr></table></figure>
@@ -445,7 +456,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/04/20/Swift-NSNotification/"
-           data-title="Swift中的NSNotification" data-url="http://blog.ryderxie.com/2015/04/20/Swift-NSNotification/">
+           data-title="Swift中的NSNotification" data-url="https://blooddrunk.github.io/2015/04/20/Swift-NSNotification/">
       </div>
     
   </div>
@@ -492,18 +503,25 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

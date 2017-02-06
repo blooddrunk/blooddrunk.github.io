@@ -103,7 +103,7 @@ Inactive
 app正在前台运行但是尚未开始接受UI事件（但它可能在执行其他代码）。一个app通常只在这个状态停留一段短暂的时间，然后转换到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS应用程序生命周期">
-<meta property="og:url" content="http://blog.ryderxie.com/2015/04/27/IOS-Application-Lifecycle/index.html">
+<meta property="og:url" content="https://blooddrunk.github.io/2015/04/27/IOS-Application-Lifecycle/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
 <meta property="og:description" content="iOS app主要有五个状态，Not running, Inactive, Active, Background, Suspended。它们之间的转换关系如下：
 
@@ -123,7 +123,7 @@ app尚未被启动或者被用户或系统终止
 Inactive
 app正在前台运行但是尚未开始接受UI事件（但它可能在执行其他代码）。一个app通常只在这个状态停留一段短暂的时间，然后转换到">
 <meta property="og:image" content="http://ww2.sinaimg.cn/mw690/6d325a28jw1erk66ylphkj20le0oegnc.jpg">
-<meta property="og:updated_time" content="2017-02-06T14:51:07.000Z">
+<meta property="og:updated_time" content="2017-02-06T15:53:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS应用程序生命周期">
 <meta name="twitter:description" content="iOS app主要有五个状态，Not running, Inactive, Active, Background, Suspended。它们之间的转换关系如下：
@@ -171,7 +171,7 @@ app正在前台运行但是尚未开始接受UI事件（但它可能在执行其
 
 
 
-  <link rel="canonical" href="http://blog.ryderxie.com/2015/04/27/IOS-Application-Lifecycle/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2015/04/27/IOS-Application-Lifecycle/"/>
 
 
 
@@ -238,6 +238,16 @@ app正在前台运行但是尚未开始接受UI事件（但它可能在执行其
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -313,7 +323,7 @@ app正在前台运行但是尚未开始接受UI事件（但它可能在执行其
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.ryderxie.com/2015/04/27/IOS-Application-Lifecycle/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/04/27/IOS-Application-Lifecycle/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -432,6 +442,7 @@ app正在前台运行但是尚未开始接受UI事件（但它可能在执行其
 </table>
 <p>启动某个app：not running -&gt; inactive -&gt; active</p>
 <p>从一个app切换到另一个app：active -&gt; inactive -&gt; background -&gt; suspended</p>
+<a id="more"></a>
 <h3 id="AppDelegate-swift"><a href="#AppDelegate-swift" class="headerlink" title="AppDelegate.swift"></a>AppDelegate.swift</h3><p>Xcode自动提供的<code>AppDelegate</code>类（实现了<code>UIApplicationDelegate</code>接口）包含这个app的启动代码和app生命周期的重要状态变化。简单介绍一下状态发生变化会被调用的重要方法：</p>
 <h4 id="Not-running-gt-Inactive"><a href="#Not-running-gt-Inactive" class="headerlink" title="Not running -&gt; Inactive"></a>Not running -&gt; Inactive</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication,</span></span></div><div class="line">	didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -&gt; <span class="type">Bool</span></div></pre></td></tr></table></figure>
 <blockquote>
@@ -530,7 +541,7 @@ app正在前台运行但是尚未开始接受UI事件（但它可能在执行其
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/04/27/IOS-Application-Lifecycle/"
-           data-title="iOS应用程序生命周期" data-url="http://blog.ryderxie.com/2015/04/27/IOS-Application-Lifecycle/">
+           data-title="iOS应用程序生命周期" data-url="https://blooddrunk.github.io/2015/04/27/IOS-Application-Lifecycle/">
       </div>
     
   </div>
@@ -577,18 +588,25 @@ app正在前台运行但是尚未开始接受UI事件（但它可能在执行其
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

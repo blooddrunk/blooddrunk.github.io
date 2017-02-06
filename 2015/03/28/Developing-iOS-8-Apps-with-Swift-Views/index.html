@@ -93,7 +93,7 @@
 subviews属性数组中位置靠">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用Swift语言开发iOS8 App： View">
-<meta property="og:url" content="http://blog.ryderxie.com/2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/index.html">
+<meta property="og:url" content="https://blooddrunk.github.io/2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
 <meta property="og:description" content="Paul Hegary的Swift课程中关于View的一些笔记
 1. view(UIView的子类)代表了一块方形区域，定义的一块坐标空间用于绘制和处理事件
@@ -102,7 +102,7 @@ subviews属性数组中位置靠">
 但可能有多个子view
 123var subviews: [AnyObject]    // 应转换为UIView类型
 subviews属性数组中位置靠">
-<meta property="og:updated_time" content="2017-02-06T14:50:06.000Z">
+<meta property="og:updated_time" content="2017-02-06T15:57:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Swift语言开发iOS8 App： View">
 <meta name="twitter:description" content="Paul Hegary的Swift课程中关于View的一些笔记
@@ -139,7 +139,7 @@ subviews属性数组中位置靠">
 
 
 
-  <link rel="canonical" href="http://blog.ryderxie.com/2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/"/>
 
 
 
@@ -206,6 +206,16 @@ subviews属性数组中位置靠">
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -281,7 +291,7 @@ subviews属性数组中位置靠">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.ryderxie.com/2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -373,6 +383,7 @@ subviews属性数组中位置靠">
 <p>但可能有多个子view</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> subviews: [<span class="type">AnyObject</span>]    <span class="comment">// 应转换为UIView类型</span></div><div class="line"></div></pre></td></tr></table></figure>
 <p><code>subviews</code>属性数组中位置靠后的view位于位置靠前的view的上面</p>
+<a id="more"></a>
 <p>3. 以编程方式创建并添加view</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">superV.addSubView(aView: <span class="type">UIView</span>)</div><div class="line"></div><div class="line">subV.removeFromSuperView()</div><div class="line"></div></pre></td></tr></table></figure>
 <p>4. 在<code>UIViewController</code>中有一个属性，它表示了当前视图中最顶层的view，我们通常就是向这个顶级view中添加子view</p>
@@ -472,7 +483,7 @@ subviews属性数组中位置靠">
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/"
-           data-title="用Swift语言开发iOS8 App： View" data-url="http://blog.ryderxie.com/2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/">
+           data-title="用Swift语言开发iOS8 App： View" data-url="https://blooddrunk.github.io/2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/">
       </div>
     
   </div>
@@ -510,18 +521,25 @@ subviews属性数组中位置靠">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

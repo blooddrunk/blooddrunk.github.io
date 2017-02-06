@@ -87,10 +87,10 @@
 <meta name="description" content="Swift在它的两步式构造过程中有严格的安全检查来保证构造的顺利进行，但这些初看上去有点晕的限制让我在初始化类自身的属性时费了不少劲。不是Property &amp;#39;self.xx&amp;#39; not initialized at super.init call，就是use of property &amp;#39;xx&amp;#39; in base object before super.init initi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift的初始化限制导致的头痛问题">
-<meta property="og:url" content="http://blog.ryderxie.com/2015/04/15/Swift-Initialization-Trap/index.html">
+<meta property="og:url" content="https://blooddrunk.github.io/2015/04/15/Swift-Initialization-Trap/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
 <meta property="og:description" content="Swift在它的两步式构造过程中有严格的安全检查来保证构造的顺利进行，但这些初看上去有点晕的限制让我在初始化类自身的属性时费了不少劲。不是Property &amp;#39;self.xx&amp;#39; not initialized at super.init call，就是use of property &amp;#39;xx&amp;#39; in base object before super.init initi">
-<meta property="og:updated_time" content="2017-02-06T14:50:59.000Z">
+<meta property="og:updated_time" content="2017-02-06T15:57:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift的初始化限制导致的头痛问题">
 <meta name="twitter:description" content="Swift在它的两步式构造过程中有严格的安全检查来保证构造的顺利进行，但这些初看上去有点晕的限制让我在初始化类自身的属性时费了不少劲。不是Property &amp;#39;self.xx&amp;#39; not initialized at super.init call，就是use of property &amp;#39;xx&amp;#39; in base object before super.init initi">
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ryderxie.com/2015/04/15/Swift-Initialization-Trap/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2015/04/15/Swift-Initialization-Trap/"/>
 
 
 
@@ -188,6 +188,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -263,7 +273,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.ryderxie.com/2015/04/15/Swift-Initialization-Trap/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/04/15/Swift-Initialization-Trap/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -364,6 +374,7 @@
 <li>最终，任意构造器链中的便利构造器可以有机会定制实例和使用self。</li>
 </ul>
 </blockquote>
+<a id="more"></a>
 <p>也就是说，在调用父类构造器前，必须先完成自身属性的初始化：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">let</span> animator: <span class="type">UIDynamicAnimator</span></div><div class="line">  </div><div class="line">  <span class="keyword">required</span> <span class="keyword">init</span>(coder aDecoder: <span class="type">NSCoder</span>) &#123;</div><div class="line">    <span class="comment">// ERROR: Property 'self.animator' not initialized at super.init call</span></div><div class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</div><div class="line">    animator = <span class="type">UIDynamicAnimator</span>(referenceView: <span class="keyword">self</span>.view)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
 <p>然而，在父类的初始化过程完成前，也无法在子类中使用self.view，交换上面两行代码顺序后还是报错：</p>
@@ -447,7 +458,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/04/15/Swift-Initialization-Trap/"
-           data-title="Swift的初始化限制导致的头痛问题" data-url="http://blog.ryderxie.com/2015/04/15/Swift-Initialization-Trap/">
+           data-title="Swift的初始化限制导致的头痛问题" data-url="https://blooddrunk.github.io/2015/04/15/Swift-Initialization-Trap/">
       </div>
     
   </div>
@@ -494,18 +505,25 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

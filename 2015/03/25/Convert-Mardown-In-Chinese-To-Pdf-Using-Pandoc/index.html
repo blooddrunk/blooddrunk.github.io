@@ -84,26 +84,17 @@
 
 
 
-<meta name="description" content="Pandoc是一款著名的文档格式的转换器。借助Pandoc可以使用markdown或textile等简单的标记语言写作，再转换成各种主流的文本格式。不过想把中文编码的markdown转换成的格式良好的PDF还需要一些额外的帮助。
-安装(Windows为例)下载对应的操作系统版本并安装。确定安装成功：
-1pandoc --version
-为了输出PDF还需要安装LaTex。Pandoc推荐MiKTe">
+<meta name="description" content="Pandoc是一款著名的文档格式的转换器。借助Pandoc可以使用markdown或textile等简单的标记语言写作，再转换成各种主流的文本格式。不过想把中文编码的markdown转换成的格式良好的PDF还需要一些额外的帮助。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用Pandoc将中文编码Markdown转换为PDF">
-<meta property="og:url" content="http://blog.ryderxie.com/2015/03/25/Convert-Mardown-In-Chinese-To-Pdf-Using-Pandoc/index.html">
+<meta property="og:url" content="https://blooddrunk.github.io/2015/03/25/Convert-Mardown-In-Chinese-To-Pdf-Using-Pandoc/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="Pandoc是一款著名的文档格式的转换器。借助Pandoc可以使用markdown或textile等简单的标记语言写作，再转换成各种主流的文本格式。不过想把中文编码的markdown转换成的格式良好的PDF还需要一些额外的帮助。
-安装(Windows为例)下载对应的操作系统版本并安装。确定安装成功：
-1pandoc --version
-为了输出PDF还需要安装LaTex。Pandoc推荐MiKTe">
+<meta property="og:description" content="Pandoc是一款著名的文档格式的转换器。借助Pandoc可以使用markdown或textile等简单的标记语言写作，再转换成各种主流的文本格式。不过想把中文编码的markdown转换成的格式良好的PDF还需要一些额外的帮助。">
 <meta property="og:image" content="http://ww2.sinaimg.cn/mw690/6d325a28jw1eqhs9bhtqlj20ia0h8n21.jpg">
-<meta property="og:updated_time" content="2017-02-06T14:50:04.000Z">
+<meta property="og:updated_time" content="2017-02-06T15:56:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用Pandoc将中文编码Markdown转换为PDF">
-<meta name="twitter:description" content="Pandoc是一款著名的文档格式的转换器。借助Pandoc可以使用markdown或textile等简单的标记语言写作，再转换成各种主流的文本格式。不过想把中文编码的markdown转换成的格式良好的PDF还需要一些额外的帮助。
-安装(Windows为例)下载对应的操作系统版本并安装。确定安装成功：
-1pandoc --version
-为了输出PDF还需要安装LaTex。Pandoc推荐MiKTe">
+<meta name="twitter:description" content="Pandoc是一款著名的文档格式的转换器。借助Pandoc可以使用markdown或textile等简单的标记语言写作，再转换成各种主流的文本格式。不过想把中文编码的markdown转换成的格式良好的PDF还需要一些额外的帮助。">
 <meta name="twitter:image" content="http://ww2.sinaimg.cn/mw690/6d325a28jw1eqhs9bhtqlj20ia0h8n21.jpg">
 
 
@@ -132,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ryderxie.com/2015/03/25/Convert-Mardown-In-Chinese-To-Pdf-Using-Pandoc/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2015/03/25/Convert-Mardown-In-Chinese-To-Pdf-Using-Pandoc/"/>
 
 
 
@@ -199,6 +190,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -274,7 +275,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.ryderxie.com/2015/03/25/Convert-Mardown-In-Chinese-To-Pdf-Using-Pandoc/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/03/25/Convert-Mardown-In-Chinese-To-Pdf-Using-Pandoc/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -360,6 +361,7 @@
 
       
         <p><a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">Pandoc</a>是一款著名的文档格式的转换器。借助Pandoc可以使用markdown或textile等简单的标记语言写作，再转换成各种主流的文本格式。不过想把中文编码的markdown转换成的格式良好的PDF还需要一些额外的帮助。</p>
+<a id="more"></a>
 <h3 id="安装-Windows为例"><a href="#安装-Windows为例" class="headerlink" title="安装(Windows为例)"></a>安装(Windows为例)</h3><p><a href="http://johnmacfarlane.net/pandoc/installing.html" target="_blank" rel="external">下载</a>对应的操作系统版本并安装。确定安装成功：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pandoc --version</div></pre></td></tr></table></figure>
 <p>为了输出PDF还需要安装LaTex。Pandoc推荐<a href="http://miktex.org/download" target="_blank" rel="external">MiKTex</a>。转换时会自动获取需要的LaTex依赖包。</p>
@@ -443,7 +445,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/03/25/Convert-Mardown-In-Chinese-To-Pdf-Using-Pandoc/"
-           data-title="利用Pandoc将中文编码Markdown转换为PDF" data-url="http://blog.ryderxie.com/2015/03/25/Convert-Mardown-In-Chinese-To-Pdf-Using-Pandoc/">
+           data-title="利用Pandoc将中文编码Markdown转换为PDF" data-url="https://blooddrunk.github.io/2015/03/25/Convert-Mardown-In-Chinese-To-Pdf-Using-Pandoc/">
       </div>
     
   </div>
@@ -490,18 +492,25 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

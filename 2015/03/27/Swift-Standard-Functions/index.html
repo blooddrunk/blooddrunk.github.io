@@ -88,11 +88,11 @@
 1234567891011121314// Collections包括Array, Dictionary, String// Sliceables包括Array, Stringlet sub = dropFirst(aSliceabl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift的一些标准内置函数">
-<meta property="og:url" content="http://blog.ryderxie.com/2015/03/27/Swift-Standard-Functions/index.html">
+<meta property="og:url" content="https://blooddrunk.github.io/2015/03/27/Swift-Standard-Functions/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
 <meta property="og:description" content="Swift有一些全局标准函数在The Swift Programming Language并没有提到。在Paul Hegary的Swift课程中看到一些，做下笔记。
 1234567891011121314// Collections包括Array, Dictionary, String// Sliceables包括Array, Stringlet sub = dropFirst(aSliceabl">
-<meta property="og:updated_time" content="2017-02-06T14:50:09.000Z">
+<meta property="og:updated_time" content="2017-02-06T15:57:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift的一些标准内置函数">
 <meta name="twitter:description" content="Swift有一些全局标准函数在The Swift Programming Language并没有提到。在Paul Hegary的Swift课程中看到一些，做下笔记。
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ryderxie.com/2015/03/27/Swift-Standard-Functions/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2015/03/27/Swift-Standard-Functions/"/>
 
 
 
@@ -191,6 +191,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -266,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.ryderxie.com/2015/03/27/Swift-Standard-Functions/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/03/27/Swift-Standard-Functions/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -353,6 +363,7 @@
       
         <p>Swift有一些全局标准函数在<a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/" target="_blank" rel="external">The Swift Programming Language</a>并没有提到。在<strong>Paul Hegary</strong>的Swift<a href="https://itunes.apple.com/cn/course/developing-ios-8-apps-swift/id961180099" title="Developing iOS 8 Apps with Swift" target="_blank" rel="external">课程</a>中看到一些，做下笔记。</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// Collections包括Array, Dictionary, String</span></div><div class="line"><span class="comment">// Sliceables包括Array, String</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> sub = <span class="built_in">dropFirst</span>(aSliceable)                   <span class="comment">// 返回一个去掉第一个元素的新序列</span></div><div class="line"><span class="keyword">let</span> sub = <span class="built_in">dropLast</span>(aSliceable)                    <span class="comment">// 返回一个去掉最后一个元素的新序列</span></div><div class="line"><span class="keyword">let</span> first = first(aCollection)                    <span class="comment">// 返回序列的第一个元素(可选值)</span></div><div class="line"><span class="keyword">let</span> last = last(aCollection)                      <span class="comment">// 返回序列的最后一个元素(可选值)</span></div><div class="line"><span class="keyword">let</span> <span class="keyword">prefix</span> = <span class="keyword">prefix</span>(aSliceable, <span class="type">X</span>: <span class="type">Int</span>)           <span class="comment">// 返回序列的前X个元素的子序列</span></div><div class="line"><span class="keyword">let</span> suffix = suffix(aSliceable, <span class="type">X</span>: <span class="type">Int</span>)           <span class="comment">// 返回序列的后X个元素的子序列</span></div><div class="line"><span class="keyword">let</span> reversed = <span class="built_in">reverse</span>(aCollection)               <span class="comment">// 返回倒序的序列，注意返回值是一个数组</span></div><div class="line"><span class="keyword">let</span> backwardsString = <span class="type">String</span>(<span class="built_in">reverse</span>(str))        <span class="comment">// 返回字符串的倒序</span></div><div class="line"><span class="keyword">let</span> isEqual = <span class="built_in">equal</span>(aSliceable1, aSliceable2)     <span class="comment">// 检查两个序列是否相等</span></div><div class="line"></div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>此外正如由于Unicode码元的原因应该用<code>countElements</code>来获取字符串的长度，在Swift中也无法简单的用<code>Int</code>来表示<code>String</code>的Index，取而代之的是<code>String.Index</code>，而使用<code>Range&lt;String.Index&gt;</code>来表示字符串片段</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> str = <span class="string">"hello"</span></div><div class="line"><span class="keyword">let</span> start = str.startIndex                       <span class="comment">// 获得字符串的第一个字符的位置</span></div><div class="line"><span class="keyword">let</span> end = str.endIndex                           <span class="comment">// 获得字符串的最后一个字符的位置</span></div><div class="line"><span class="keyword">let</span> index = <span class="built_in">advance</span>(str.startIndex, <span class="number">2</span>)           <span class="comment">// 获得字符串第三个字符的位置(第一个字符之后两个)</span></div><div class="line"><span class="keyword">let</span> substring = str[index..&lt;end]                 <span class="comment">// 获得子串</span></div><div class="line"></div></pre></td></tr></table></figure>
 <p>上面的提到了<code>Range</code>，它表示Swift中序列的一个片段，在<code>for-in</code>循环中已经隐式使用过它了：</p>
@@ -431,7 +442,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/03/27/Swift-Standard-Functions/"
-           data-title="Swift的一些标准内置函数" data-url="http://blog.ryderxie.com/2015/03/27/Swift-Standard-Functions/">
+           data-title="Swift的一些标准内置函数" data-url="https://blooddrunk.github.io/2015/03/27/Swift-Standard-Functions/">
       </div>
     
   </div>
@@ -469,18 +480,25 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -88,11 +88,11 @@
 123456789struct EvenNumberStruct &amp;#123;    let number: UInt    init?(number: UInt) &amp;#123;        if number % 2 != 0 &amp;#123;            return nil        &amp;#125;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift 1.2中类的可失败构造方法">
-<meta property="og:url" content="http://blog.ryderxie.com/2015/05/10/Swift-Failable-Initializer/index.html">
+<meta property="og:url" content="https://blooddrunk.github.io/2015/05/10/Swift-Failable-Initializer/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
 <meta property="og:description" content="在Swift的构造函数中可以通过return nil来表示构造过程可能失败，如下：
 123456789struct EvenNumberStruct &amp;#123;    let number: UInt    init?(number: UInt) &amp;#123;        if number % 2 != 0 &amp;#123;            return nil        &amp;#125;">
-<meta property="og:updated_time" content="2017-02-06T15:02:41.000Z">
+<meta property="og:updated_time" content="2017-02-06T15:52:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift 1.2中类的可失败构造方法">
 <meta name="twitter:description" content="在Swift的构造函数中可以通过return nil来表示构造过程可能失败，如下：
@@ -124,7 +124,7 @@
 
 
 
-  <link rel="canonical" href="http://blog.ryderxie.com/2015/05/10/Swift-Failable-Initializer/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2015/05/10/Swift-Failable-Initializer/"/>
 
 
 
@@ -191,6 +191,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
           </a>
         </li>
       
@@ -266,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://blog.ryderxie.com/2015/05/10/Swift-Failable-Initializer/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/05/10/Swift-Failable-Initializer/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -353,6 +363,7 @@
       
         <p>在Swift的构造函数中可以通过<code>return nil</code>来表示构造过程可能失败，如下：</p>
 <figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">EvenNumberStruct</span> </span>&#123;</div><div class="line">    <span class="keyword">let</span> number: <span class="type">UInt</span></div><div class="line">    <span class="keyword">init</span>?(number: <span class="type">UInt</span>) &#123;</div><div class="line">        <span class="keyword">if</span> number % <span class="number">2</span> != <span class="number">0</span> &#123;</div><div class="line">            <span class="keyword">return</span> <span class="literal">nil</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">self</span>.number = number</div><div class="line">    &#125;   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>然而如把上面的结构换成类，就会得到下面的错误:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">All stored properties of a class instance must be initialized before returning nil from an initializer</div></pre></td></tr></table></figure>
 <p>这是因为类的可失败构造函数只有在所有的类属性被初始化完成后才会触发失败行为，也就是说，在return nil之前，须保证所有的存储属性已被初始化（虽然我们的本意就是在这种情况下不必进行初始化）。在Swift 1.1中，可以将上边的存储属性改为可选类型，这样它就有一个默认的初始值nil。然而Swift 1.2中，改为UInt!并不会解决问题，事实上，只要把<code>self.number = number</code>放在<code>return nil</code>前面即可。</p>
@@ -402,6 +413,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/02/06/Cancelable-Promise/" rel="prev" title="Cancelable Promise">
+                Cancelable Promise <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -427,7 +442,7 @@
   <div class="comments" id="comments">
     
       <div class="ds-thread" data-thread-key="2015/05/10/Swift-Failable-Initializer/"
-           data-title="Swift 1.2中类的可失败构造方法" data-url="http://blog.ryderxie.com/2015/05/10/Swift-Failable-Initializer/">
+           data-title="Swift 1.2中类的可失败构造方法" data-url="https://blooddrunk.github.io/2015/05/10/Swift-Failable-Initializer/">
       </div>
     
   </div>
@@ -465,18 +480,25 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
