@@ -1169,38 +1169,6 @@
         
           <p>iOS app主要有五个状态，<strong>Not running</strong>, <strong>Inactive</strong>, <strong>Active</strong>, <strong>Background</strong>, <strong>Suspended</strong>。它们之间的转换关系如下：</p>
 <p><img src="http://ww2.sinaimg.cn/mw690/6d325a28jw1erk66ylphkj20le0oegnc.jpg" alt="States Changes in an iOS app"></p>
-<table>
-<thead>
-<tr>
-<th>状态</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Not running</td>
-<td>app尚未被启动或者被用户或系统终止</td>
-</tr>
-<tr>
-<td>Inactive</td>
-<td>app正在前台运行但是尚未开始接受UI事件（但它可能在执行其他代码）。一个app通常只在这个状态停留一段短暂的时间，然后转换到下个状态。在进入inactive状态时，由于马上就会过渡到background或active状态，app此时应该让自己保持不活动的状态。</td>
-</tr>
-<tr>
-<td>Active</td>
-<td>app正在前台运行并在接受事件。这就是我们通常看到的前台程序的状态。一个处于active状态的app没有特殊的限制，它应当对用户操作做出响应。</td>
-</tr>
-<tr>
-<td>Background</td>
-<td>app正在执行代码但没有显示在屏幕上。当用户退出一个app时，系统在中止这个app之前（进入suspended状态）使它短暂的置于background状态。在其他情况下，系统可能在后台启动某个app（或者唤醒一个处于suspended状态的app），给它一定时间来处理某些特定的任务。比如，系统可能唤醒一个app让它来进行后台下载，处理和位置的有关的事件，远程通知或其他类型的事件。处于background状态的app应当做的工作越少越好，它应该尽快把控制还给系统。</td>
-</tr>
-<tr>
-<td>Suspended</td>
-<td>app还在内存中但没有在执行任何代码。系统会中止那些没有任何挂起的任务要完成的后台程序。系统可能在任何时候清理这些程序来为其他app提供空间。</td>
-</tr>
-</tbody>
-</table>
-<p>启动某个app：not running -&gt; inactive -&gt; active</p>
-<p>从一个app切换到另一个app：active -&gt; inactive -&gt; background -&gt; suspended</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/04/27/IOS-Application-Lifecycle/#more" rel="contents">
@@ -1336,8 +1304,6 @@
           <p><code>NSNotification</code>提供了在应用程序中广播和接受消息的方法。</p>
 <h3 id="注册一个通知"><a href="#注册一个通知" class="headerlink" title="注册一个通知"></a>注册一个通知</h3><p>注册一个通知非常简单，获取默认的“通知中心”，然后调用<code>addObserverForName</code>方法</p>
 <p><img src="http://ww3.sinaimg.cn/mw690/6d325a28gw1erc345st0uj20pc0g8gs7.jpg" alt="addObserverForName"></p>
-<p>比如，监视用户在设置中改变字体的通知：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">let</span> center = <span class="type">NSNotificationCenter</span>.defaultCenter() <span class="comment">// 获取用于系统通知的通知中心</span></div><div class="line"></div><div class="line">center.addObserverForName(<span class="type">UIContentSizeCategoryDidChangeNotification</span> <span class="comment">// 要监视的通知的名称</span></div><div class="line">                    object: <span class="type">UIApplication</span>.sharedApplication(), <span class="comment">// 要见识的通知发送者(nil表示所有发送者)</span></div><div class="line">                    queue: <span class="type">NSOperationQueue</span>.mainQueue()) <span class="comment">// 用于执行接收到通知后要执行的闭包的队列</span></div><div class="line">&#123; notification <span class="keyword">in</span> <span class="comment">// 这其实是个trailing闭包，是第四个参数</span></div><div class="line">	<span class="comment">// ...</span></div><div class="line">    <span class="keyword">let</span> <span class="built_in">c</span> = notification.userInfo?[<span class="type">UIContentSizeCategoryNewValueKey</span>] <span class="comment">// 获取设置的新的字体，比如UIContentSizeCategorySmall</span></div><div class="line">	<span class="comment">// userInfo是随通知发送的包含相关信息的字典</span></div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2015/04/20/Swift-NSNotification/#more" rel="contents">
@@ -1751,35 +1717,14 @@
 
       
         
-          
-            <p>iOS有一些内置Controller，它们的视图是另一个MVC：<code>UITabBarController</code>, <code>UISplitViewController</code>, <code>UINavigationController</code>, <code>UIPopoverController</code></p>
-<h3 id="UITabBarController"><a href="#UITabBarController" class="headerlink" title="UITabBarController"></a>UITabBarController</h3><p><img src="http://ww3.sinaimg.cn/mw690/6d325a28gw1eqpabtjcw4j20dw0okgnh.jpg" alt="UITabBarController"></p>
-<p><code>UITabBarController</code>绘制在屏幕下方绘制了最多5个tab标签(如果超过5个会自动呈现一个管理超出部分的界面)，上方呈现当前选定的tab的MVC。事实上，下方的tab栏的icon, title都是由<code>UITabBarController</code>包含的MVC的Controller的</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> tabBarItem: <span class="type">UITabBarItem</span>!</div><div class="line"></div></pre></td></tr></table></figure>
-<p>属性所决定。tar bar item通常在<em>storyboard</em>中拖放进来。</p>
-<h3 id="UISplitViewController"><a href="#UISplitViewController" class="headerlink" title="UISplitViewController"></a>UISplitViewController</h3><p><img src="http://ww4.sinaimg.cn/mw690/6d325a28gw1eqpabr9vblj210y0pm43e.jpg" alt="UISplitViewController"></p>
-<p><code>UISplitViewController</code>只包括两个MVC：通常左侧<em>Master</em>决定了右侧的<em>Detail</em>的内容(每次都会生成一个新的Detail)。只有在iPad和iPhone6+的横屏模式可以同时显示Master和Detail，在iPad竖屏时只显示Detail，滑动屏幕才能看到Master。在其他尺寸的设备中需要嵌入<code>UINavigationController</code>来让UISplitViewController正常工作，这是由<strong>Size Classes</strong>决定的</p>
-<h3 id="UINavigationController"><a href="#UINavigationController" class="headerlink" title="UINavigationController"></a>UINavigationController</h3><p><img src="http://ww3.sinaimg.cn/mw690/6d325a28gw1eqpablssn3j20du0oi40e.jpg" alt="UINavigationController"></p>
-<p><code>UINavigationController</code>大量运用于“设置”菜单中。可以把它想象成一个后进先出的Stack，最初的元素叫做<code>rootViewController</code>，最上面的元素叫做<code>visibleViewController</code>，它们都是<code>UINavigationController</code>的属性，每当在当前设置页面中点击一个子项，就相当于在上面push一个新项，而每点一次“后退”，就会把最上边的项pop掉(完全丢弃)。<code>UINavigationController</code>只负责呈现了上方的标题栏，下方的内容由Stack最上方的MVC所决定。甚至标题的内容，和标题栏的按钮也是由当前显示的MVC决定的(<code>navigationItem</code>属性)。</p>
-<h3 id="获得子MVC"><a href="#获得子MVC" class="headerlink" title="获得子MVC"></a>获得子MVC</h3><p><code>UITabBarController</code>, <code>UISplitViewController</code>, <code>UINavigationController</code>都一个数组属性表示它们包含的子MVC</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> viewControllers: [<span class="type">UIViewController</span>] &#123; <span class="keyword">get</span> <span class="keyword">set</span> &#125;</div><div class="line"></div></pre></td></tr></table></figure>
-<p>相反的，每一个<code>UIViewController</code>也有三个对应的属性表示它是否在<code>UITabBarController</code>, <code>UISplitViewController</code>, <code>UINavigationController</code>中</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> tabBarController: <span class="type">UITabBarController</span>? &#123; <span class="keyword">get</span> &#125;</div><div class="line"><span class="keyword">var</span> splitViewController: <span class="type">UISplitViewController</span>? &#123; <span class="keyword">get</span> &#125;</div><div class="line"><span class="keyword">var</span> navigationController: <span class="type">UINavigationController</span>? &#123; <span class="keyword">get</span> &#125;</div><div class="line"></div><div class="line"><span class="comment">//在Master中获得Detail</span></div><div class="line"><span class="keyword">if</span> <span class="keyword">let</span> detailVC = splitViewController?.viewControllers[<span class="number">1</span>] &#123;</div><div class="line">	...</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
-<h3 id="Segue"><a href="#Segue" class="headerlink" title="Segue"></a>Segue</h3><p>创建好了子MVC后，我们还需要调用它们，这就是<code>Segue</code>，主要有以下几种<code>Segue</code>：</p>
-<ul>
-<li>Show Segue(如果在<code>UINavigationController</code>中，被调用的MVC就会被添加进<code>UINavigationController</code>的顶端，否则会展示为Modal窗口)</li>
-<li>Show Detail Segue(如果在<code>UISplitViewController</code>中，会展示一个Detail MVC，否则类似Show Segue)</li>
-<li>Modal Segue(展示为模态窗口，不太会用到)</li>
-<li>Popover Segue(展示为一个popover窗口，点击窗口以外的区域就会关闭该窗口)</li>
-</ul>
-<p><strong>Segue每次都会创建一个新的MVC</strong>，旧的会被抛弃</p>
-<p><img src="http://ww4.sinaimg.cn/mw690/6d325a28gw1eqpabhneqyj209i080js9.jpg" alt="Segue"></p>
-<p>在storyboard中建立好Segue关系(通常是通过Control/右键拖动，比如在调用MVC中的一个按钮到目标MVC，点击这个按钮就会展示目标MVC)并填写好Segue的id后，往往还需要为目标MVC提供一定的初始化数据，为此在调用MVC中override<code>prepareForSegue</code>方法：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">func</span> <span class="title">prepareForSegue</span><span class="params">(segue: UIStoryboardSegue, sender: AnyObject?)</span></span> &#123;</div><div class="line">    <span class="keyword">if</span> <span class="keyword">let</span> identifier = segue.identifier &#123;</div><div class="line">        <span class="keyword">switch</span> identifier &#123;</div><div class="line">            <span class="keyword">case</span> “<span class="type">Show</span> <span class="type">Graph</span>”:</div><div class="line">                <span class="keyword">if</span> <span class="keyword">let</span> vc = segue.destinationViewController <span class="keyword">as</span>? <span class="type">CalcGraphController</span> &#123;</div><div class="line">                    vc.property1 = ...</div><div class="line">                    vc.callMethodToSetItUp(...)</div><div class="line">                &#125;</div><div class="line">            <span class="keyword">default</span>: <span class="keyword">break</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
-<p>第一个参数<code>segue</code>有两个重要的属性，第一个是<code>identifier</code>(在storyboard的Attribules inspector中设置），用来标识调用了哪个Segue，另一个<code>destinationViewController</code>表示目标MVC，可利用它暴露的借口来做一些初始化工作，注意它是AnyObject，需要转换类型</p>
-<p>需要注意的是，<code>prepareForSegue</code>执行的时候，<code>destinationViewController</code>中的outlets并没有被初始化，需要避免假设outlets有值而引发异常</p>
-
-          
+          <p>iOS有一些内置Controller，它们的视图是另一个MVC：<code>UITabBarController</code>, <code>UISplitViewController</code>, <code>UINavigationController</code>, <code>UIPopoverController</code></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1863,7 +1808,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>

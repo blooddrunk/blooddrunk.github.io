@@ -84,65 +84,17 @@
 
 
 
-<meta name="description" content="iOS app主要有五个状态，Not running, Inactive, Active, Background, Suspended。它们之间的转换关系如下：
-
-
-
-
-状态
-说明
-
-
-
-
-Not running
-app尚未被启动或者被用户或系统终止
-
-
-Inactive
-app正在前台运行但是尚未开始接受UI事件（但它可能在执行其他代码）。一个app通常只在这个状态停留一段短暂的时间，然后转换到">
+<meta name="description" content="iOS app主要有五个状态，Not running, Inactive, Active, Background, Suspended。它们之间的转换关系如下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS应用程序生命周期">
 <meta property="og:url" content="https://blooddrunk.github.io/2015/04/27/IOS-Application-Lifecycle/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="iOS app主要有五个状态，Not running, Inactive, Active, Background, Suspended。它们之间的转换关系如下：
-
-
-
-
-状态
-说明
-
-
-
-
-Not running
-app尚未被启动或者被用户或系统终止
-
-
-Inactive
-app正在前台运行但是尚未开始接受UI事件（但它可能在执行其他代码）。一个app通常只在这个状态停留一段短暂的时间，然后转换到">
+<meta property="og:description" content="iOS app主要有五个状态，Not running, Inactive, Active, Background, Suspended。它们之间的转换关系如下：">
 <meta property="og:image" content="http://ww2.sinaimg.cn/mw690/6d325a28jw1erk66ylphkj20le0oegnc.jpg">
-<meta property="og:updated_time" content="2017-02-06T15:53:05.000Z">
+<meta property="og:updated_time" content="2017-02-07T15:52:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS应用程序生命周期">
-<meta name="twitter:description" content="iOS app主要有五个状态，Not running, Inactive, Active, Background, Suspended。它们之间的转换关系如下：
-
-
-
-
-状态
-说明
-
-
-
-
-Not running
-app尚未被启动或者被用户或系统终止
-
-
-Inactive
-app正在前台运行但是尚未开始接受UI事件（但它可能在执行其他代码）。一个app通常只在这个状态停留一段短暂的时间，然后转换到">
+<meta name="twitter:description" content="iOS app主要有五个状态，Not running, Inactive, Active, Background, Suspended。它们之间的转换关系如下：">
 <meta name="twitter:image" content="http://ww2.sinaimg.cn/mw690/6d325a28jw1erk66ylphkj20le0oegnc.jpg">
 
 
@@ -410,6 +362,7 @@ app正在前台运行但是尚未开始接受UI事件（但它可能在执行其
       
         <p>iOS app主要有五个状态，<strong>Not running</strong>, <strong>Inactive</strong>, <strong>Active</strong>, <strong>Background</strong>, <strong>Suspended</strong>。它们之间的转换关系如下：</p>
 <p><img src="http://ww2.sinaimg.cn/mw690/6d325a28jw1erk66ylphkj20le0oegnc.jpg" alt="States Changes in an iOS app"></p>
+<a id="more"></a>
 <table>
 <thead>
 <tr>
@@ -442,7 +395,6 @@ app正在前台运行但是尚未开始接受UI事件（但它可能在执行其
 </table>
 <p>启动某个app：not running -&gt; inactive -&gt; active</p>
 <p>从一个app切换到另一个app：active -&gt; inactive -&gt; background -&gt; suspended</p>
-<a id="more"></a>
 <h3 id="AppDelegate-swift"><a href="#AppDelegate-swift" class="headerlink" title="AppDelegate.swift"></a>AppDelegate.swift</h3><p>Xcode自动提供的<code>AppDelegate</code>类（实现了<code>UIApplicationDelegate</code>接口）包含这个app的启动代码和app生命周期的重要状态变化。简单介绍一下状态发生变化会被调用的重要方法：</p>
 <h4 id="Not-running-gt-Inactive"><a href="#Not-running-gt-Inactive" class="headerlink" title="Not running -&gt; Inactive"></a>Not running -&gt; Inactive</h4><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">optional</span> <span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication,</span></span></div><div class="line">	didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -&gt; <span class="type">Bool</span></div></pre></td></tr></table></figure>
 <blockquote>
@@ -597,7 +549,7 @@ app正在前台运行但是尚未开始接受UI事件（但它可能在执行其
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
