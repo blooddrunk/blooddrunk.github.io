@@ -166,7 +166,7 @@
     </a>
   </div>
     
-      <p class="site-subtitle"></p>
+      <p class="site-subtitle">99%的问题都能用Google/stackoverflow解决</p>
     
 </div>
 
@@ -362,7 +362,7 @@
 
       
         <p>在Swift为对象实现类似<code>toString</code>的方法非常简单：在相应的类、结构或枚举声明中实现<code>Printable</code>协议，然后实现该协议指定的<code>description</code>只读计算属性即可：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span>: <span class="title">Printable</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></div><div class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></div><div class="line">    </div><div class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"width=<span class="subst">\(width)</span>, height=<span class="subst">\(height)</span>"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> r = <span class="type">Rect</span>(width: <span class="number">11</span>, height: <span class="number">22</span>)</div><div class="line"><span class="built_in">println</span>(<span class="string">"My Rect: <span class="subst">\(r)</span>"</span>)</div><div class="line"></div></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span>: <span class="title">Printable</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></div><div class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></div><div class="line">    </div><div class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"width=\(width), height=\(height)"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> r = <span class="type">Rect</span>(width: <span class="number">11</span>, height: <span class="number">22</span>)</div><div class="line"><span class="built_in">println</span>(<span class="string">"My Rect: \(r)"</span>)</div><div class="line"></div></pre></td></tr></table></figure>
 <blockquote>
 <p>在<strong>playground</strong>中不知道为什么在右侧看到的结果跟没有实现<code>Printable</code>协议一样，这应该是playground的问题</p>
 </blockquote>
@@ -475,7 +475,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -484,7 +484,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -493,7 +493,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

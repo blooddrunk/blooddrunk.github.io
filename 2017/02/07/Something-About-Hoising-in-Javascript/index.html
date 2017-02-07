@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Jekyll,blog," />
+  <meta name="keywords" content="ES6,Javascript," />
 
 
 
@@ -84,19 +84,25 @@
 
 
 
-<meta name="description" content="Jekyll并不是一个博客软件，它只是一个静态网页生成引擎。它不包括页面模板和设计元素，我们需要自己实现他们。然而使用Jekyll我们可以使用markdown或者Html编写页面，在本机预览并通过Git推送到GitHub Pages上托管，无需数据库
-如果嫌麻烦，可以试试JekyllBootstrap，虽然貌似很久之前原作者就不再更新，不过看上去有人接手了后续本版本的开发(0.4.0 - next">
+<meta name="description" content="var vs let
+http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable
+
+主要区别在于作用域。var声明的变量的作用域为最近函数作用域，let声明的变量仅当前的块级作用域有效。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于Jekyll">
-<meta property="og:url" content="https://blooddrunk.github.io/2015/03/24/About-Jekyll/index.html">
+<meta property="og:title" content="关于Javascript的变量提升(Hoisting)">
+<meta property="og:url" content="https://blooddrunk.github.io/2017/02/07/Something-About-Hoising-in-Javascript/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="Jekyll并不是一个博客软件，它只是一个静态网页生成引擎。它不包括页面模板和设计元素，我们需要自己实现他们。然而使用Jekyll我们可以使用markdown或者Html编写页面，在本机预览并通过Git推送到GitHub Pages上托管，无需数据库
-如果嫌麻烦，可以试试JekyllBootstrap，虽然貌似很久之前原作者就不再更新，不过看上去有人接手了后续本版本的开发(0.4.0 - next">
-<meta property="og:updated_time" content="2017-02-06T14:47:54.000Z">
+<meta property="og:description" content="var vs let
+http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable
+
+主要区别在于作用域。var声明的变量的作用域为最近函数作用域，let声明的变量仅当前的块级作用域有效。">
+<meta property="og:updated_time" content="2017-02-07T15:04:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于Jekyll">
-<meta name="twitter:description" content="Jekyll并不是一个博客软件，它只是一个静态网页生成引擎。它不包括页面模板和设计元素，我们需要自己实现他们。然而使用Jekyll我们可以使用markdown或者Html编写页面，在本机预览并通过Git推送到GitHub Pages上托管，无需数据库
-如果嫌麻烦，可以试试JekyllBootstrap，虽然貌似很久之前原作者就不再更新，不过看上去有人接手了后续本版本的开发(0.4.0 - next">
+<meta name="twitter:title" content="关于Javascript的变量提升(Hoisting)">
+<meta name="twitter:description" content="var vs let
+http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable
+
+主要区别在于作用域。var声明的变量的作用域为最近函数作用域，let声明的变量仅当前的块级作用域有效。">
 
 
 
@@ -124,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://blooddrunk.github.io/2015/03/24/About-Jekyll/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2017/02/07/Something-About-Hoising-in-Javascript/"/>
 
 
 
 
 
-  <title> 关于Jekyll | Ryder's Blog </title>
+  <title> 关于Javascript的变量提升(Hoisting) | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +282,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/03/24/About-Jekyll/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2017/02/07/Something-About-Hoising-in-Javascript/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -300,7 +306,7 @@
             
             
               
-                关于Jekyll
+                关于Javascript的变量提升(Hoisting)
               
             
           </h1>
@@ -315,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-24T22:21:33+08:00">
-                2015-03-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-07T22:05:07+08:00">
+                2017-02-07
               </time>
             
 
@@ -326,6 +332,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -334,8 +373,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/03/24/About-Jekyll/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/24/About-Jekyll/" itemprop="commentCount"></span>
+                <a href="/2017/02/07/Something-About-Hoising-in-Javascript/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/Something-About-Hoising-in-Javascript/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,8 +400,30 @@
       
 
       
-        <p><a href="http://jekyllrb.com/" target="_blank" rel="external">Jekyll</a>并不是一个博客软件，它只是一个静态网页生成引擎。它不包括页面模板和设计元素，我们需要自己实现他们。然而使用Jekyll我们可以使用markdown或者Html编写页面，在本机预览并通过Git推送到<a href="https://pages.github.com/" target="_blank" rel="external">GitHub Pages</a>上托管，无需数据库</p>
-<p>如果嫌麻烦，可以试试<a href="http://jekyllbootstrap.com/" target="_blank" rel="external">JekyllBootstrap</a>，虽然貌似很久之前原作者就不再更新，不过看上去有人接手了后续本版本的开发(<a href="https://github.com/plusjade/jekyll-bootstrap/" target="_blank" rel="external">0.4.0 - next release [ETA 03/29/2015]</a>)。本博客则fork自<a href="https://github.com/barryclark/jekyll-now" target="_blank" rel="external">barryclark/jekyll-now</a></p>
+        <h1 id="var-vs-let"><a href="#var-vs-let" class="headerlink" title="var vs let"></a>var vs let</h1><blockquote>
+<p><a href="http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable" target="_blank" rel="external">http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable</a></p>
+</blockquote>
+<p>主要区别在于作用域。<code>var</code>声明的变量的作用域为最近函数作用域，<code>let</code>声明的变量仅当前的块级作用域有效。</p>
+<a id="more"></a>
+<ol>
+<li><p><strong>全局作用域</strong><br>定义在全局时，<code>var</code>和<code>let</code>表现的非常相似</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="string">'foo'</span>;  <span class="comment">// globally scoped</span></div><div class="line"><span class="keyword">var</span> b = <span class="string">'bar'</span>; <span class="comment">// globally scoped</span></div></pre></td></tr></table></figure>
+<p>然而，与<code>var</code>不同，<code>let</code>定义在全局的变量不会成为<code>window</code>对象的一个属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// undefined</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b); <span class="comment">// 'bar'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>重复声明</strong><br>在严格模式下，<code>var</code>可以在当前作用域下重复声明同一变量，<code>let</code>则不可以</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">let</span> a = <span class="string">'foo'</span>;</div><div class="line"><span class="keyword">let</span> a = <span class="string">'bar'</span>; <span class="comment">// SyntaxError: Identifier 'me' has already been declared</span></div><div class="line"></div><div class="line">...</div><div class="line"><span class="meta"></span></div><div class="line">'use strict';</div><div class="line"><span class="keyword">var</span> b = <span class="string">'foo'</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="string">'bar'</span>; <span class="comment">// No problem, `bme` is replaced.</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="let-const声明的变量不会被提升？"><a href="#let-const声明的变量不会被提升？" class="headerlink" title="let/const声明的变量不会被提升？"></a><code>let</code>/<code>const</code>声明的变量不会被提升？</h1><blockquote>
+<p><a href="http://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6?rq=1</a></p>
+</blockquote>
+<p>实际上，javascript中所有的声明(<code>var</code>, <code>let</code>, <code>const</code>, <code>function</code>, <code>function*</code>, <code>class</code>)都会被提升。所以可以说，如果在某个作用域中定义一个变量，那么这个变量总是指向其在该作用域中的值。在函数作用域和块作用域中都是如此</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">x = <span class="string">"global"</span>;</div><div class="line"><span class="comment">// function scope:</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    x; <span class="comment">// not "global"</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span>/<span class="keyword">let</span>/… x;</div><div class="line">&#125;());</div><div class="line"><span class="comment">// block scope (not for `var`s):</span></div><div class="line">&#123;</div><div class="line">    x; <span class="comment">// not "global"</span></div><div class="line"></div><div class="line">    <span class="keyword">let</span>/<span class="keyword">const</span>/… x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>var</code>/<code>function</code>/<code>function*</code>和<code>let</code>/<code>const</code>/<code>class</code>声明的区别在于<strong>初始化</strong>。<br>前者在’绑定(binding)’创建时，在作用域的最顶端被初始化为<code>undefined</code>；而后者并未被初始化，因此当你试图访问它时会抛出<code>ReferenceError</code>异常。<br>只有代码执行到<code>let</code>/<code>const</code>/<code>class</code>语句本身时初始化才发生，从作用域顶端(提升的位置)到<code>let</code>/<code>const</code>/<code>class</code>声明被执行到之前之间的这个语法上的区域，被称为<em>temporal dead zone</em></p>
+<blockquote>
+<p>let vs const<br>  在变量提升上，<code>let</code>和<code>const</code>表现的完全一致，两者的唯一区别在于<code>const</code>能切仅能在初始化时被赋值一次。</p>
+</blockquote>
 
       
     </div>
@@ -386,9 +447,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Jekyll/" rel="tag"># Jekyll</a>
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
           
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
           
         </div>
       
@@ -397,15 +458,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/02/06/Cancelable-Promise/" rel="next" title="Cancelable Promise">
+                <i class="fa fa-chevron-left"></i> Cancelable Promise
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/03/24/Render-Table-Using-Redcarpet/" rel="prev" title="让Redcarpet在Jekyll Github Pages中处理表格">
-                让Redcarpet在Jekyll Github Pages中处理表格 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -431,8 +492,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/03/24/About-Jekyll/"
-           data-title="关于Jekyll" data-url="https://blooddrunk.github.io/2015/03/24/About-Jekyll/">
+      <div class="ds-thread" data-thread-key="2017/02/07/Something-About-Hoising-in-Javascript/"
+           data-title="关于Javascript的变量提升(Hoisting)" data-url="https://blooddrunk.github.io/2017/02/07/Something-About-Hoising-in-Javascript/">
       </div>
     
   </div>
@@ -456,8 +517,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -513,6 +583,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#var-vs-let"><span class="nav-number">1.</span> <span class="nav-text">var vs let</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#let-const声明的变量不会被提升？"><span class="nav-number">2.</span> <span class="nav-text">let/const声明的变量不会被提升？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
