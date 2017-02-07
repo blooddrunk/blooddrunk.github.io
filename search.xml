@@ -3,13 +3,6 @@
   
     
     <entry>
-      <title><![CDATA[关于Javascript的变量提升(Hoisting)]]></title>
-      <url>%2F2017%2F02%2F07%2FSomething-About-Hoising-in-Javascript%2F</url>
-      <content type="text"><![CDATA[var vs let http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable 主要区别在于作用域。var声明的变量的作用域为最近函数作用域，let声明的变量仅当前的块级作用域有效。 全局作用域定义在全局时，var和let表现的非常相似 12let a = 'foo'; // globally scopedvar b = 'bar'; // globally scoped 然而，与var不同，let定义在全局的变量不会成为window对象的一个属性 12console.log(window.a); // undefinedconsole.log(window.b); // 'bar' 重复声明在严格模式下，var可以在当前作用域下重复声明同一变量，let则不可以 123456789'use strict';let a = 'foo';let a = 'bar'; // SyntaxError: Identifier 'me' has already been declared...'use strict';var b = 'foo';var b = 'bar'; // No problem, `bme` is replaced. let/const声明的变量不会被提升？ http://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6?rq=1 实际上，javascript中所有的声明(var, let, const, function, function*, class)都会被提升。所以可以说，如果在某个作用域中定义一个变量，那么这个变量总是指向其在该作用域中的值。在函数作用域和块作用域中都是如此 12345678910111213x = "global";// function scope:(function() &#123; x; // not "global" var/let/… x;&#125;());// block scope (not for `var`s):&#123; x; // not "global" let/const/… x;&#125; var/function/function*和let/const/class声明的区别在于初始化。前者在’绑定(binding)’创建时，在作用域的最顶端被初始化为undefined；而后者并未被初始化，因此当你试图访问它时会抛出ReferenceError异常。只有代码执行到let/const/class语句本身时初始化才发生，从作用域顶端(提升的位置)到let/const/class声明被执行到之前之间的这个语法上的区域，被称为temporal dead zone let vs const 在变量提升上，let和const表现的完全一致，两者的唯一区别在于const能切仅能在初始化时被赋值一次。]]></content>
-    </entry>
-
-    
-    <entry>
       <title><![CDATA[Cancelable Promise]]></title>
       <url>%2F2017%2F02%2F06%2FCancelable-Promise%2F</url>
       <content type="text"><![CDATA[使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误： “Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmounted component. This is a no-op. Please check the code for the ContactPage component.” 解决这个问题最简单的方法就是在Lifecyle事件中手动设置并在调用setState()前检查某个标记位： inside a component123456789101112componentDidMount() &#123; this._isMounted = true&#125;componentWillUnmount() &#123; this._isMounted = false&#125;// 调用setState时if(this._isMounted) &#123; this.setState(...)&#125; 介于现在普遍都在使用Fetch API和Promise，更好的办法是使用可被Cancel的Promise，一个简单的实现如下： cancelable promise12345678910111213141516171819const makeCancelable = (promise) =&gt; &#123; let hasCanceled_ = false const wrappedPromise = new Promise((resolve, reject) =&gt; &#123; promise.then((val) =&gt; hasCanceled_ ? reject(&#123;isCanceled: true&#125;) : resolve(val) ) promise.catch((error) =&gt; hasCanceled_ ? reject(&#123;isCanceled: true&#125;) : reject(error) ) &#125;); return &#123; promise: wrappedPromise, cancel() &#123; hasCanceled_ = true; &#125;, &#125;&#125; 通过在原来返回Promise的调用外包裹一层Higher Order Function(虽然实际上返回的是一个新的对象), 然后在必要时(componentWillUnmount)取消掉: 12345678910const cancelablePromise = makeCancelable( new Promise(r =&gt; component.setState(&#123;...&#125;&#125;)));cancelablePromise .promise .then(() =&gt; console.log('resolved')) .catch((reason) =&gt; console.log('isCanceled', reason.isCanceled));cancelablePromise.cancel(); // Cancel the promise Eric Elliott大神给出了更完善的实现: https://github.com/ericelliott/speculation]]></content>
@@ -17,8 +10,22 @@
 
     
     <entry>
+      <title><![CDATA[使用React Motion在React中实现淡入/淡出效果]]></title>
+      <url>%2F2017%2F01%2F01%2FUse-React-Motion-for-Fade-in-out-effects-in-React%2F</url>
+      <content type="text"><![CDATA[直到我尝试用React实现一个简单的淡入淡出动画，我才怀念起jQuery。 React Motion是一个出色的React动画库，然而用它来实现单个组件的淡入/淡出，也不是很直观，下面是一个例子]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[关于Javascript的变量提升(Hoisting)]]></title>
+      <url>%2F2016%2F12%2F07%2FSomething-About-Hoising-in-Javascript%2F</url>
+      <content type="text"><![CDATA[var vs let http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable 主要区别在于作用域。var声明的变量的作用域为最近函数作用域，let声明的变量仅当前的块级作用域有效。 全局作用域定义在全局时，var和let表现的非常相似 12let a = 'foo'; // globally scopedvar b = 'bar'; // globally scoped 然而，与var不同，let定义在全局的变量不会成为window对象的一个属性 12console.log(window.a); // undefinedconsole.log(window.b); // 'bar' 重复声明在严格模式下，var可以在当前作用域下重复声明同一变量，let则不可以 123456789'use strict';let a = 'foo';let a = 'bar'; // SyntaxError: Identifier 'me' has already been declared...'use strict';var b = 'foo';var b = 'bar'; // No problem, `bme` is replaced. let/const声明的变量不会被提升？ http://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6?rq=1 实际上，javascript中所有的声明(var, let, const, function, function*, class)都会被提升。所以可以说，如果在某个作用域中定义一个变量，那么这个变量总是指向其在该作用域中的值。在函数作用域和块作用域中都是如此 12345678910111213x = "global";// function scope:(function() &#123; x; // not "global" var/let/… x;&#125;());// block scope (not for `var`s):&#123; x; // not "global" let/const/… x;&#125; var/function/function*和let/const/class声明的区别在于初始化。前者在’绑定(binding)’创建时，在作用域的最顶端被初始化为undefined；而后者并未被初始化，因此当你试图访问它时会抛出ReferenceError异常。只有代码执行到let/const/class语句本身时初始化才发生，从作用域顶端(提升的位置)到let/const/class声明被执行到之前之间的这个语法上的区域，被称为temporal dead zone let vs const 在变量提升上，let和const表现的完全一致，两者的唯一区别在于const能切仅能在初始化时被赋值一次。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[一些前端面试的资源]]></title>
-      <url>%2F2017%2F01%2F01%2FFront-end-Interview-Resources%2F</url>
+      <url>%2F2016%2F10%2F23%2FFront-end-Interview-Resources%2F</url>
       <content type="text"><![CDATA[随便收集了些前端面试的问题。现在的前端面试还要问10年前的问题？Doctype, float, IE quirks乱七八糟的背书一样记住才算资深咯？Google/stackoverflow党压力山大。 中文: https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/master/Translations/Chinese https://github.com/hawx1993/Front-end-Interview-questions 英文: https://github.com/khan4019/front-end-Interview-Questions https://github.com/h5bp/Front-end-Developer-Interview-Questions https://frontendmasters.gitbooks.io/front-end-handbook-2017/content/practice/interview-q.html Eric Elliott的系列文章(国内貌似有翻译的): Master the JavaScript Interview: What is a Closure? Master the JavaScript Interview: What’s the Difference Between Class &amp; Prototypal Inheritance? Master the JavaScript Interview: What is a Pure Function? Master the JavaScript Interview: What is Function Composition? Master the JavaScript Interview: What is Functional Programming? Master the JavaScript Interview: What is a Promise?]]></content>
     </entry>
 

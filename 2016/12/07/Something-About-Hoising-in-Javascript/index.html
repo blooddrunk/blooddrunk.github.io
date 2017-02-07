@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Swift," />
+  <meta name="keywords" content="Javascript,ES6," />
 
 
 
@@ -84,16 +84,25 @@
 
 
 
-<meta name="description" content="Swift在它的两步式构造过程中有严格的安全检查来保证构造的顺利进行，但这些初看上去有点晕的限制让我在初始化类自身的属性时费了不少劲。不是Property &amp;#39;self.xx&amp;#39; not initialized at super.init call，就是use of property &amp;#39;xx&amp;#39; in base object before super.init initi">
+<meta name="description" content="var vs let
+http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable
+
+主要区别在于作用域。var声明的变量的作用域为最近函数作用域，let声明的变量仅当前的块级作用域有效。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift的初始化限制导致的头痛问题">
-<meta property="og:url" content="https://blooddrunk.github.io/2015/04/15/Swift-Initialization-Trap/index.html">
+<meta property="og:title" content="关于Javascript的变量提升(Hoisting)">
+<meta property="og:url" content="https://blooddrunk.github.io/2016/12/07/Something-About-Hoising-in-Javascript/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="Swift在它的两步式构造过程中有严格的安全检查来保证构造的顺利进行，但这些初看上去有点晕的限制让我在初始化类自身的属性时费了不少劲。不是Property &amp;#39;self.xx&amp;#39; not initialized at super.init call，就是use of property &amp;#39;xx&amp;#39; in base object before super.init initi">
-<meta property="og:updated_time" content="2017-02-06T15:57:34.000Z">
+<meta property="og:description" content="var vs let
+http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable
+
+主要区别在于作用域。var声明的变量的作用域为最近函数作用域，let声明的变量仅当前的块级作用域有效。">
+<meta property="og:updated_time" content="2017-02-07T15:10:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift的初始化限制导致的头痛问题">
-<meta name="twitter:description" content="Swift在它的两步式构造过程中有严格的安全检查来保证构造的顺利进行，但这些初看上去有点晕的限制让我在初始化类自身的属性时费了不少劲。不是Property &amp;#39;self.xx&amp;#39; not initialized at super.init call，就是use of property &amp;#39;xx&amp;#39; in base object before super.init initi">
+<meta name="twitter:title" content="关于Javascript的变量提升(Hoisting)">
+<meta name="twitter:description" content="var vs let
+http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable
+
+主要区别在于作用域。var声明的变量的作用域为最近函数作用域，let声明的变量仅当前的块级作用域有效。">
 
 
 
@@ -121,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="https://blooddrunk.github.io/2015/04/15/Swift-Initialization-Trap/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2016/12/07/Something-About-Hoising-in-Javascript/"/>
 
 
 
 
 
-  <title> Swift的初始化限制导致的头痛问题 | Ryder's Blog </title>
+  <title> 关于Javascript的变量提升(Hoisting) | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +282,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/04/15/Swift-Initialization-Trap/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2016/12/07/Something-About-Hoising-in-Javascript/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -297,7 +306,7 @@
             
             
               
-                Swift的初始化限制导致的头痛问题
+                关于Javascript的变量提升(Hoisting)
               
             
           </h1>
@@ -312,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-04-15T20:33:10+08:00">
-                2015-04-15
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-07T22:05:07+08:00">
+                2016-12-07
               </time>
             
 
@@ -323,6 +332,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -331,8 +373,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/04/15/Swift-Initialization-Trap/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/15/Swift-Initialization-Trap/" itemprop="commentCount"></span>
+                <a href="/2016/12/07/Something-About-Hoising-in-Javascript/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/07/Something-About-Hoising-in-Javascript/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -358,35 +400,30 @@
       
 
       
-        <p>Swift在它的两步式构造过程中有严格的安全检查来保证构造的顺利进行，但这些初看上去有点晕的限制让我在初始化类自身的属性时费了不少劲。不是<code>Property &#39;self.xx&#39; not initialized at super.init call</code>，就是<code>use of property &#39;xx&#39; in base object before super.init initializes it</code></p>
-<p>先来复习一下Swift两步式<a href="http://numbbbbb.gitbooks.io/-the-swift-programming-language-/content/chapter2/14_Initialization.html" target="_blank" rel="external">构造过程</a>的规则:</p>
-<blockquote>
-<h4 id="阶段1"><a href="#阶段1" class="headerlink" title="阶段1"></a>阶段1</h4><ul>
-<li>某个指定构造器或便利构造器被调用；</li>
-<li>完成新实例内存的分配，但此时内存还没有被初始化；</li>
-<li>指定构造器确保其所在类引入的所有存储型属性都已赋初值。存储型属性所属的内存完成初始化；</li>
-<li>指定构造器将调用父类的构造器，完成父类属性的初始化；</li>
-<li>这个调用父类构造器的过程沿着构造器链一直往上执行，直到到达构造器链的最顶部；</li>
-<li>当到达了构造器链最顶部，且已确保所有实例包含的存储型属性都已经赋值，这个实例的内存被认为已经完全初始化。此时阶段1完成。</li>
-</ul>
-<h4 id="阶段2"><a href="#阶段2" class="headerlink" title="阶段2"></a>阶段2</h4><ul>
-<li>从顶部构造器链一直往下，每个构造器链中类的指定构造器都有机会进一步定制实例。构造器此时可以访问self、修改它的属性并调用实例方法等等。</li>
-<li>最终，任意构造器链中的便利构造器可以有机会定制实例和使用self。</li>
-</ul>
+        <h1 id="var-vs-let"><a href="#var-vs-let" class="headerlink" title="var vs let"></a>var vs let</h1><blockquote>
+<p><a href="http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable" target="_blank" rel="external">http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable</a></p>
 </blockquote>
+<p>主要区别在于作用域。<code>var</code>声明的变量的作用域为最近函数作用域，<code>let</code>声明的变量仅当前的块级作用域有效。</p>
 <a id="more"></a>
-<p>也就是说，在调用父类构造器前，必须先完成自身属性的初始化：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">let</span> animator: <span class="type">UIDynamicAnimator</span></div><div class="line">  </div><div class="line">  <span class="keyword">required</span> <span class="keyword">init</span>(coder aDecoder: <span class="type">NSCoder</span>) &#123;</div><div class="line">    <span class="comment">// ERROR: Property 'self.animator' not initialized at super.init call</span></div><div class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</div><div class="line">    animator = <span class="type">UIDynamicAnimator</span>(referenceView: <span class="keyword">self</span>.view)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
-<p>然而，在父类的初始化过程完成前，也无法在子类中使用self.view，交换上面两行代码顺序后还是报错：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">let</span> animator: <span class="type">UIDynamicAnimator</span></div><div class="line">  </div><div class="line">  <span class="keyword">required</span> <span class="keyword">init</span>(coder aDecoder: <span class="type">NSCoder</span>) &#123;</div><div class="line">    <span class="comment">// use of property 'view' in base object before super.init initializes it</span></div><div class="line">    animator = <span class="type">UIDynamicAnimator</span>(referenceView: <span class="keyword">self</span>.view)</div><div class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
-<p>在一些情况下，我们可以把初始化分为两步来解决问题，不过在这里<code>UIDynamicAnimator.referenceView</code>是个只读属性，并不能奏效：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">let</span> animator: <span class="type">UIDynamicAnimator</span></div><div class="line">  </div><div class="line">  <span class="keyword">required</span> <span class="keyword">init</span>(coder aDecoder: <span class="type">NSCoder</span>) &#123;</div><div class="line">    animator = <span class="type">UIDynamicAnimator</span>() <span class="comment">// 先不引用self</span></div><div class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</div><div class="line">    <span class="comment">// ERROR: Cannot assign to the result of this expression</span></div><div class="line">    animator.referenceView = <span class="keyword">self</span>.view <span class="comment">// 等父类构造过程完成</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
-<p>更好一点的方式，将这个属性改为<code>Optional</code>，并确保它在较早的阶段(构造完成后)被赋值(比如<code>viewDidLoad</code>)：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">  <span class="keyword">private</span> <span class="keyword">var</span> animator: <span class="type">UIDynamicAnimator</span>! <span class="comment">// 使用隐式解包可选属性可以避免以后每次使用时显示解包的麻烦</span></div><div class="line">  </div><div class="line">  <span class="keyword">required</span> <span class="keyword">init</span>(coder aDecoder: <span class="type">NSCoder</span>) &#123;</div><div class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    animator = <span class="type">UIDynamicAnimator</span>(referenceView: <span class="keyword">self</span>.view)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
-<p>此外，还可以使用延迟存储属性和立即执行的闭包(不使用闭包依然无法在此时使用<code>self</code>)：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</div><div class="line">  <span class="comment">// 延迟属性必须用var声明</span></div><div class="line">  <span class="built_in">lazy</span> <span class="keyword">private</span> <span class="keyword">var</span> animator: <span class="type">UIDynamicAnimator</span> = &#123;</div><div class="line">    <span class="keyword">return</span> <span class="type">UIDynamicAnimator</span>(referenceView: <span class="keyword">self</span>.view)</div><div class="line">  &#125;()</div><div class="line">  </div><div class="line">  <span class="keyword">required</span> <span class="keyword">init</span>(coder aDecoder: <span class="type">NSCoder</span>) &#123;</div><div class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(coder: aDecoder)</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</div><div class="line">    <span class="keyword">super</span>.viewDidLoad()</div><div class="line">    animator.addBehavior(<span class="type">UIGravityBehavior</span>())</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
-<p>这种方法的缺点是使用延迟属性的话就无法使用属性观察器了</p>
-<p>我现在碰到的问题是，想在一个<code>UIView</code>的属性的<code>didSet</code>中调用<code>setNeedsDisplay()</code>，同时它的初始值构造时要用到<code>self.bounds</code>，因此无法使用延迟属性。使用可选值的话，又不知道如何在<code>UIView</code>中合理的给它一个初始值。烦。</p>
+<ol>
+<li><p><strong>全局作用域</strong><br>定义在全局时，<code>var</code>和<code>let</code>表现的非常相似</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a = <span class="string">'foo'</span>;  <span class="comment">// globally scoped</span></div><div class="line"><span class="keyword">var</span> b = <span class="string">'bar'</span>; <span class="comment">// globally scoped</span></div></pre></td></tr></table></figure>
+<p>然而，与<code>var</code>不同，<code>let</code>定义在全局的变量不会成为<code>window</code>对象的一个属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a); <span class="comment">// undefined</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.b); <span class="comment">// 'bar'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>重复声明</strong><br>在严格模式下，<code>var</code>可以在当前作用域下重复声明同一变量，<code>let</code>则不可以</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">let</span> a = <span class="string">'foo'</span>;</div><div class="line"><span class="keyword">let</span> a = <span class="string">'bar'</span>; <span class="comment">// SyntaxError: Identifier 'me' has already been declared</span></div><div class="line"></div><div class="line">...</div><div class="line"><span class="meta"></span></div><div class="line">'use strict';</div><div class="line"><span class="keyword">var</span> b = <span class="string">'foo'</span>;</div><div class="line"><span class="keyword">var</span> b = <span class="string">'bar'</span>; <span class="comment">// No problem, `bme` is replaced.</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h1 id="let-const声明的变量不会被提升？"><a href="#let-const声明的变量不会被提升？" class="headerlink" title="let/const声明的变量不会被提升？"></a><code>let</code>/<code>const</code>声明的变量不会被提升？</h1><blockquote>
+<p><a href="http://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6?rq=1" target="_blank" rel="external">http://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6?rq=1</a></p>
+</blockquote>
+<p>实际上，javascript中所有的声明(<code>var</code>, <code>let</code>, <code>const</code>, <code>function</code>, <code>function*</code>, <code>class</code>)都会被提升。所以可以说，如果在某个作用域中定义一个变量，那么这个变量总是指向其在该作用域中的值。在函数作用域和块作用域中都是如此</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">x = <span class="string">"global"</span>;</div><div class="line"><span class="comment">// function scope:</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    x; <span class="comment">// not "global"</span></div><div class="line"></div><div class="line">    <span class="keyword">var</span>/<span class="keyword">let</span>/… x;</div><div class="line">&#125;());</div><div class="line"><span class="comment">// block scope (not for `var`s):</span></div><div class="line">&#123;</div><div class="line">    x; <span class="comment">// not "global"</span></div><div class="line"></div><div class="line">    <span class="keyword">let</span>/<span class="keyword">const</span>/… x;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>var</code>/<code>function</code>/<code>function*</code>和<code>let</code>/<code>const</code>/<code>class</code>声明的区别在于<strong>初始化</strong>。<br>前者在’绑定(binding)’创建时，在作用域的最顶端被初始化为<code>undefined</code>；而后者并未被初始化，因此当你试图访问它时会抛出<code>ReferenceError</code>异常。<br>只有代码执行到<code>let</code>/<code>const</code>/<code>class</code>语句本身时初始化才发生，从作用域顶端(提升的位置)到<code>let</code>/<code>const</code>/<code>class</code>声明被执行到之前之间的这个语法上的区域，被称为<em>temporal dead zone</em></p>
+<blockquote>
+<p>let vs const<br>  在变量提升上，<code>let</code>和<code>const</code>表现的完全一致，两者的唯一区别在于<code>const</code>能切仅能在初始化时被赋值一次。</p>
+</blockquote>
 
       
     </div>
@@ -410,7 +447,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Swift/" rel="tag"># Swift</a>
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
+          
+            <a href="/tags/ES6/" rel="tag"># ES6</a>
           
         </div>
       
@@ -419,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/31/ToString-in-Swift/" rel="next" title="Swift中的"toString"方法">
-                <i class="fa fa-chevron-left"></i> Swift中的"toString"方法
+              <a href="/2016/10/23/Front-end-Interview-Resources/" rel="next" title="一些前端面试的资源">
+                <i class="fa fa-chevron-left"></i> 一些前端面试的资源
               </a>
             
           </div>
@@ -429,8 +468,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/20/Swift-NSNotification/" rel="prev" title="Swift中的NSNotification">
-                Swift中的NSNotification <i class="fa fa-chevron-right"></i>
+              <a href="/2017/01/01/Use-React-Motion-for-Fade-in-out-effects-in-React/" rel="prev" title="使用React Motion在React中实现淡入/淡出效果">
+                使用React Motion在React中实现淡入/淡出效果 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -457,8 +496,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/04/15/Swift-Initialization-Trap/"
-           data-title="Swift的初始化限制导致的头痛问题" data-url="https://blooddrunk.github.io/2015/04/15/Swift-Initialization-Trap/">
+      <div class="ds-thread" data-thread-key="2016/12/07/Something-About-Hoising-in-Javascript/"
+           data-title="关于Javascript的变量提升(Hoisting)" data-url="https://blooddrunk.github.io/2016/12/07/Something-About-Hoising-in-Javascript/">
       </div>
     
   </div>
@@ -558,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#阶段1"><span class="nav-number">1.</span> <span class="nav-text">阶段1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#阶段2"><span class="nav-number">2.</span> <span class="nav-text">阶段2</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#var-vs-let"><span class="nav-number">1.</span> <span class="nav-text">var vs let</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#let-const声明的变量不会被提升？"><span class="nav-number">2.</span> <span class="nav-text">let/const声明的变量不会被提升？</span></a></li></ol></div>
             
 
           </div>
