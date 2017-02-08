@@ -2,7 +2,6 @@
 title: 关于Jekyll
 date: 2015-03-24 22:21:33
 tags:
-  - Jekyll
   - blog
 ---
 

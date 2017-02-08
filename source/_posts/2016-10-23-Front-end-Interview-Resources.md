@@ -9,7 +9,7 @@ categories:
   - 面试
 ---
 
-随便收集了些前端面试的问题。现在的前端面试还要问10年前的问题？Doctype, float, IE quirks乱七八糟的背书一样记住才算资深咯？Google/stackoverflow党压力山大。
+随便收集了些前端面试的问题，没想到也是各种祖传背书题？Doctype, float, IE quirks乱七八糟的吓死了。Google/stackoverflow党压力山大。
 
 <!-- more -->
 
