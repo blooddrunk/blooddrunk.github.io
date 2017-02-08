@@ -8,6 +8,8 @@ tags:
 
 iOS有一些内置Controller，它们的视图是另一个MVC：`UITabBarController`, `UISplitViewController`, `UINavigationController`, `UIPopoverController`
 
+<!-- more -->
+
 ### UITabBarController
 
 ![UITabBarController](http://ww3.sinaimg.cn/mw690/6d325a28gw1eqpabtjcw4j20dw0okgnh.jpg)

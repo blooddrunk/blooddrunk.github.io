@@ -4,6 +4,8 @@ date: 2015-03-24 23:45:48
 tags:
   - IDE
   - Sublime
+categories:
+  - cheat sheet
 ---
 
 Sublime Text快捷键一览表(Mac)
@@ -42,7 +44,7 @@ Sublime Text快捷键一览表(Mac)
 |⌃ + ⇧ + Down    |Column selection down|
 |⌃ + ⇧ + W	     |Wrap Selection in html tag|
 
-
+<!--more -->
 
 ### Navigation/Goto Anywhere
 

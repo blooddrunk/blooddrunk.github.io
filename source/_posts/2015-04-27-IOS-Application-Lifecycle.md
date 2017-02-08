@@ -10,6 +10,8 @@ iOS app主要有五个状态，**Not running**, **Inactive**, **Active**, **Back
 
 ![States Changes in an iOS app](http://ww2.sinaimg.cn/mw690/6d325a28jw1erk66ylphkj20le0oegnc.jpg)
 
+<!-- more -->
+
 | 状态 | 说明 |
 |------|------|
 | Not running | app尚未被启动或者被用户或系统终止 |
@@ -21,8 +23,6 @@ iOS app主要有五个状态，**Not running**, **Inactive**, **Active**, **Back
 启动某个app：not running -> inactive -> active
 
 从一个app切换到另一个app：active -> inactive -> background -> suspended
-
-<!-- more -->
 
 ### AppDelegate.swift
 

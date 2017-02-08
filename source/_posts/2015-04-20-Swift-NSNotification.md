@@ -14,6 +14,8 @@ tags:
 
 ![addObserverForName](http://ww3.sinaimg.cn/mw690/6d325a28gw1erc345st0uj20pc0g8gs7.jpg)
 
+<!-- more -->
+
 比如，监视用户在设置中改变字体的通知：
 
 {% codeblock lang:swift %}
@@ -30,8 +32,6 @@ center.addObserverForName(UIContentSizeCategoryDidChangeNotification // 要监�
 }
 
 {% endcodeblock %}
-
-<!-- more -->
 
 ### 创建一个通知
 
