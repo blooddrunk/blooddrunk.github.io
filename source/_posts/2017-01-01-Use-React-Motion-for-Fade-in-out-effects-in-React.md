@@ -12,4 +12,4 @@ categories:
 
 [React Motion](https://github.com/chenglou/react-motion)是一个出色的React动画库，然而用它来实现单个组件的淡入/淡出，也不是很直观，下面是一个例子
 
-{% jsfiddle  jelinenaro/c7qo6ycy result,js,css default default 400 %}
+{% codepen  jelinenaro wgvRBb 0 result 400 %}

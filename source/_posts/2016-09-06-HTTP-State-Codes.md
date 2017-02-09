@@ -3,7 +3,7 @@ title: HTTP状态码一览
 tags:
   - 网络
 categories:
-  - cheet sheet
+  - cheat sheet
 date: 2016-09-06 21:33:55
 ---
 
