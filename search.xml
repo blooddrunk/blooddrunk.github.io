@@ -17,6 +17,13 @@
 
     
     <entry>
+      <title><![CDATA[使用CSS实现三角形]]></title>
+      <url>%2F2016%2F12%2F23%2FCSS-Triangle%2F</url>
+      <content type="text"><![CDATA[将一个盒子的宽和高都设为0，这样它的实际宽和高将由border确定，利用将两边的border-color设为transparent，中间的border的可见颜色区域将形成一个三角形 所以为何不用SVG…]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[关于Javascript的变量提升(Hoisting)]]></title>
       <url>%2F2016%2F12%2F07%2FSomething-About-Hoising-in-Javascript%2F</url>
       <content type="text"><![CDATA[var vs let http://stackoverflow.com/questions/762011/whats-the-difference-between-using-let-and-var-to-declare-a-variable 主要区别在于作用域。var声明的变量的作用域为最近函数作用域，let声明的变量仅当前的块级作用域有效。 全局作用域定义在全局时，var和let表现的非常相似 12let a = 'foo'; // globally scopedvar b = 'bar'; // globally scoped 然而，与var不同，let定义在全局的变量不会成为window对象的一个属性 12console.log(window.a); // undefinedconsole.log(window.b); // 'bar' 重复声明在严格模式下，var可以在当前作用域下重复声明同一变量，let则不可以 123456789'use strict';let a = 'foo';let a = 'bar'; // SyntaxError: Identifier 'me' has already been declared...'use strict';var b = 'foo';var b = 'bar'; // No problem, `bme` is replaced. let/const声明的变量不会被提升？ http://stackoverflow.com/questions/31219420/are-variables-declared-with-let-or-const-not-hoisted-in-es6?rq=1 实际上，javascript中所有的声明(var, let, const, function, function*, class)都会被提升。所以可以说，如果在某个作用域中定义一个变量，那么这个变量总是指向其在该作用域中的值。在函数作用域和块作用域中都是如此 12345678910111213x = "global";// function scope:(function() &#123; x; // not "global" var/let/… x;&#125;());// block scope (not for `var`s):&#123; x; // not "global" let/const/… x;&#125; var/function/function*和let/const/class声明的区别在于初始化。前者在’绑定(binding)’创建时，在作用域的最顶端被初始化为undefined；而后者并未被初始化，因此当你试图访问它时会抛出ReferenceError异常。只有代码执行到let/const/class语句本身时初始化才发生，从作用域顶端(提升的位置)到let/const/class声明被执行到之前之间的这个语法上的区域，被称为temporal dead zone let vs const 在变量提升上，let和const表现的完全一致，两者的唯一区别在于const能切仅能在初始化时被赋值一次。]]></content>
@@ -52,9 +59,30 @@
 
     
     <entry>
+      <title><![CDATA[用CSS给图片着色以突出文本]]></title>
+      <url>%2F2016%2F06%2F22%2FText-On-Image%2F</url>
+      <content type="text"><![CDATA[使用position可以简单的在图片上覆盖文字，同时，为了更好的突出文字，往往希望让图片变暗，使用CSS一个元素可以有多个background的特性，可以轻松实现这个效果]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[边距塌陷(组合) margin collapse]]></title>
+      <url>%2F2016%2F02%2F09%2Fmargin-collapse%2F</url>
+      <content type="text"><![CDATA[块元素的上/下边距有时会塌陷(组合)成一个单的的边距，实际的边距大小是两个边距中值最大的一个，这就是所谓的margin collapsing 最常见的情况出现在上下相邻的两个元素，如下，虽然上面的div有25px的下边距，但由于下面的div的上边距为50px，所以两者的实际间距为50px]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[(面试传家宝)在浏览器中输入一个URL之后发生了什么]]></title>
       <url>%2F2015%2F12%2F08%2Fwhat-happens-when-you-enter-a-url-in-browser%2F</url>
       <content type="text"><![CDATA[http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser# https://github.com/markyun/My-blog/tree/master/Front-end-Developer-Questions/Questions-and-Answers 详细版： 浏览器会开启一个线程来处理这个请求，对 URL 分析判断如果是 http 协议就按照 Web 方式来处理; 调用浏览器内核中的对应方法，比如 WebView 中的 loadUrl 方法; 通过DNS解析获取网址的IP地址，设置 UA 等信息发出第二个GET请求; 进行HTTP协议会话，客户端发送报头(请求报头); 进入到web服务器上的 Web Server，如 Apache、Tomcat、Node.JS 等服务器; 进入部署好的后端应用，如 PHP、Java、JavaScript、Python 等，找到对应的请求处理; 处理结束回馈报头，此处如果浏览器访问过，缓存上有对应资源，会与服务器最后修改时间对比，一致则返回304; 浏览器开始下载html文档(响应报头，状态码200)，同时使用缓存; 文档树建立，根据标记请求所需指定MIME类型的文件（比如css、js）,同时设置了cookie; 页面开始渲染DOM，JS根据DOM API操作DOM,执行事件绑定等，页面显示完成。 简洁版： 浏览器根据请求的URL交给DNS域名解析，找到真实IP，向服务器发起请求； 服务器交给后台处理完成后返回数据，浏览器接收文件（HTML、JS、CSS、图象等）； 浏览器对加载到的资源（HTML、JS、CSS等）进行语法解析，建立相应的内部数据结构（如HTML的DOM）； 载入解析到的资源文件，渲染页面，完成。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[box-sizing reset]]></title>
+      <url>%2F2015%2F07%2F13%2Fbox-sizing-reset%2F</url>
+      <content type="text"><![CDATA[在网站中使用border-box的box-sizing可以简化我们计算元素布局时的工作，下面是一种较为流行的做法 123456html &#123; box-sizing: border-box;&#125;*, *:before, *:after &#123; box-sizing: inherit;&#125;]]></content>
     </entry>
 
     
