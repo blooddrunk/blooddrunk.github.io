@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Swift," />
+  <meta name="keywords" content="React,Redux," />
 
 
 
@@ -84,19 +84,28 @@
 
 
 
-<meta name="description" content="在Swift为对象实现类似toString的方法非常简单：在相应的类、结构或枚举声明中实现Printable协议，然后实现该协议指定的description只读计算属性即可：
-12345678910111213struct Rect: Printable &amp;#123;    var width: Double    var height: Double        var description">
+<meta name="description" content="https://github.com/erikras/ducks-modular-redux
+
+传统上，一个react/redux项目会有类似以下的目录
+123456|_ containers|_ components|_ reducers|_ actions|_ constants|_ ...
+然而对于不太复杂的项目，很多情况下我们只需要用到一两个reducer和action(creator)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift中的"toString"方法">
-<meta property="og:url" content="https://blooddrunk.github.io/2015/03/31/ToString-in-Swift/index.html">
+<meta property="og:title" content="redux 'ducks' 文件组织结构">
+<meta property="og:url" content="https://blooddrunk.github.io/2016/10/10/redux-ducks-file-structure/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="在Swift为对象实现类似toString的方法非常简单：在相应的类、结构或枚举声明中实现Printable协议，然后实现该协议指定的description只读计算属性即可：
-12345678910111213struct Rect: Printable &amp;#123;    var width: Double    var height: Double        var description">
-<meta property="og:updated_time" content="2017-02-06T14:50:55.000Z">
+<meta property="og:description" content="https://github.com/erikras/ducks-modular-redux
+
+传统上，一个react/redux项目会有类似以下的目录
+123456|_ containers|_ components|_ reducers|_ actions|_ constants|_ ...
+然而对于不太复杂的项目，很多情况下我们只需要用到一两个reducer和action(creator)">
+<meta property="og:updated_time" content="2017-02-11T01:41:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift中的"toString"方法">
-<meta name="twitter:description" content="在Swift为对象实现类似toString的方法非常简单：在相应的类、结构或枚举声明中实现Printable协议，然后实现该协议指定的description只读计算属性即可：
-12345678910111213struct Rect: Printable &amp;#123;    var width: Double    var height: Double        var description">
+<meta name="twitter:title" content="redux 'ducks' 文件组织结构">
+<meta name="twitter:description" content="https://github.com/erikras/ducks-modular-redux
+
+传统上，一个react/redux项目会有类似以下的目录
+123456|_ containers|_ components|_ reducers|_ actions|_ constants|_ ...
+然而对于不太复杂的项目，很多情况下我们只需要用到一两个reducer和action(creator)">
 
 
 
@@ -124,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://blooddrunk.github.io/2015/03/31/ToString-in-Swift/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2016/10/10/redux-ducks-file-structure/"/>
 
 
 
 
 
-  <title> Swift中的"toString"方法 | Ryder's Blog </title>
+  <title> redux 'ducks' 文件组织结构 | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +285,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/03/31/ToString-in-Swift/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2016/10/10/redux-ducks-file-structure/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -300,7 +309,7 @@
             
             
               
-                Swift中的"toString"方法
+                redux 'ducks' 文件组织结构
               
             
           </h1>
@@ -315,8 +324,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-31T21:44:51+08:00">
-                2015-03-31
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-10-10T09:16:15+08:00">
+                2016-10-10
               </time>
             
 
@@ -326,6 +335,39 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/React/" itemprop="url" rel="index">
+                    <span itemprop="name">React</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -334,8 +376,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/03/31/ToString-in-Swift/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/31/ToString-in-Swift/" itemprop="commentCount"></span>
+                <a href="/2016/10/10/redux-ducks-file-structure/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/10/redux-ducks-file-structure/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,11 +403,22 @@
       
 
       
-        <p>在Swift为对象实现类似<code>toString</code>的方法非常简单：在相应的类、结构或枚举声明中实现<code>Printable</code>协议，然后实现该协议指定的<code>description</code>只读计算属性即可：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Rect</span>: <span class="title">Printable</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> width: <span class="type">Double</span></div><div class="line">    <span class="keyword">var</span> height: <span class="type">Double</span></div><div class="line">    </div><div class="line">    <span class="keyword">var</span> description: <span class="type">String</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"width=\(width), height=\(height)"</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> r = <span class="type">Rect</span>(width: <span class="number">11</span>, height: <span class="number">22</span>)</div><div class="line"><span class="built_in">println</span>(<span class="string">"My Rect: \(r)"</span>)</div><div class="line"></div></pre></td></tr></table></figure>
-<blockquote>
-<p>在<strong>playground</strong>中不知道为什么在右侧看到的结果跟没有实现<code>Printable</code>协议一样，这应该是playground的问题</p>
+        <blockquote>
+<p><a href="https://github.com/erikras/ducks-modular-redux" target="_blank" rel="external">https://github.com/erikras/ducks-modular-redux</a></p>
 </blockquote>
+<p>传统上，一个react/redux项目会有类似以下的目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">|_ containers</div><div class="line">|_ components</div><div class="line">|_ reducers</div><div class="line">|_ actions</div><div class="line">|_ constants</div><div class="line">|_ ...</div></pre></td></tr></table></figure>
+<p>然而对于不太复杂的项目，很多情况下我们只需要用到一两个reducer和action(creator)，上面的目录结构由于将逻辑上的功能分散使得import有些繁琐。以下按模块划分的<code>Ducks</code>目录结构更直观</p>
+<a id="more"></a>
+<figure class="highlight javascript"><figcaption><span>widgets.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Actions</span></div><div class="line"><span class="keyword">const</span> LOAD   = <span class="string">'my-app/widgets/LOAD'</span>;</div><div class="line"><span class="keyword">const</span> CREATE = <span class="string">'my-app/widgets/CREATE'</span>;</div><div class="line"><span class="keyword">const</span> UPDATE = <span class="string">'my-app/widgets/UPDATE'</span>;</div><div class="line"><span class="keyword">const</span> REMOVE = <span class="string">'my-app/widgets/REMOVE'</span>;</div><div class="line"></div><div class="line"><span class="comment">// Reducer</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">state = &#123;&#125;, action = &#123;&#125;</span>) </span>&#123;</div><div class="line">  <span class="keyword">switch</span> (action.type) &#123;</div><div class="line">    <span class="comment">// do reducer stuff</span></div><div class="line">    <span class="keyword">default</span>: <span class="keyword">return</span> state;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// Action Creators</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">loadWidgets</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: LOAD &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">createWidget</span>(<span class="params">widget</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: CREATE, widget &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">updateWidget</span>(<span class="params">widget</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: UPDATE, widget &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">removeWidget</span>(<span class="params">widget</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> &#123; <span class="attr">type</span>: REMOVE, widget &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>约定</strong></p>
+<p>一个所谓<em>模块</em>，</p>
+<ol>
+<li>必须<code>export default</code>一个叫<code>reducer()</code>的函数(也就是我们的reducer)</li>
+<li>必须<code>export</code>它的action creators函数</li>
+<li>以类似<code>npm-module-or-app/reducer/ACTION_TYPE</code>的方式定义他的<strong>action type</strong></li>
+<li>如果必要，也<code>export</code>它的<strong>action type</strong></li>
+</ol>
 
       
     </div>
@@ -389,7 +442,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Swift/" rel="tag"># Swift</a>
+            <a href="/tags/React/" rel="tag"># React</a>
+          
+            <a href="/tags/Redux/" rel="tag"># Redux</a>
           
         </div>
       
@@ -398,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/" rel="next" title="用Swift语言开发iOS8 App： Multiple MVC">
-                <i class="fa fa-chevron-left"></i> 用Swift语言开发iOS8 App： Multiple MVC
+              <a href="/2016/09/28/Similar-Methods-in-Javascript-Object/" rel="next" title="Javascript Object对象中一些容易混淆的方法">
+                <i class="fa fa-chevron-left"></i> Javascript Object对象中一些容易混淆的方法
               </a>
             
           </div>
@@ -408,8 +463,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/15/Swift-Initialization-Trap/" rel="prev" title="Swift的初始化限制导致的头痛问题">
-                Swift的初始化限制导致的头痛问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/10/23/Front-end-Interview-Resources/" rel="prev" title="一些前端面试的资源">
+                一些前端面试的资源 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -436,8 +491,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/03/31/ToString-in-Swift/"
-           data-title="Swift中的"toString"方法" data-url="https://blooddrunk.github.io/2015/03/31/ToString-in-Swift/">
+      <div class="ds-thread" data-thread-key="2016/10/10/redux-ducks-file-structure/"
+           data-title="redux 'ducks' 文件组织结构" data-url="https://blooddrunk.github.io/2016/10/10/redux-ducks-file-structure/">
       </div>
     
   </div>
