@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CSS," />
 
 
 
@@ -84,15 +84,28 @@
 
 
 
-<meta name="description" content="マジヤばくね">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ryder's Blog">
-<meta property="og:url" content="https://blooddrunk.github.io/archives/2015/05/index.html">
+<meta name="description" content="CSS的style guide有很多，重度强迫症也许对属性的排序也有要求，大部分人倾向于按类型/重要性排序， 比如按下面的分类来排序(分组)：
+
+Layout Properties (position, float, clear, display)
+Box Model Properties (width, height, margin, padding)
+Visual Properties (co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS属性顺序惯例">
+<meta property="og:url" content="https://blooddrunk.github.io/2016/04/13/CSS-Properties-Ordering/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="マジヤばくね">
+<meta property="og:description" content="CSS的style guide有很多，重度强迫症也许对属性的排序也有要求，大部分人倾向于按类型/重要性排序， 比如按下面的分类来排序(分组)：
+
+Layout Properties (position, float, clear, display)
+Box Model Properties (width, height, margin, padding)
+Visual Properties (co">
+<meta property="og:updated_time" content="2017-02-13T15:04:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ryder's Blog">
-<meta name="twitter:description" content="マジヤばくね">
+<meta name="twitter:title" content="CSS属性顺序惯例">
+<meta name="twitter:description" content="CSS的style guide有很多，重度强迫症也许对属性的排序也有要求，大部分人倾向于按类型/重要性排序， 比如按下面的分类来排序(分组)：
+
+Layout Properties (position, float, clear, display)
+Box Model Properties (width, height, margin, padding)
+Visual Properties (co">
 
 
 
@@ -120,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://blooddrunk.github.io/archives/2015/05/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2016/04/13/CSS-Properties-Ordering/"/>
 
 
 
 
 
-  <title> 归档 | Ryder's Blog </title>
+  <title> CSS属性顺序惯例 | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -147,7 +160,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,66 +275,193 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 27 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
 
-      
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2016/04/13/CSS-Properties-Ordering/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Ryder Xie">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ryder's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ryder's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS属性顺序惯例
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-13T22:48:05+08:00">
+                2016-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/cheat-sheet/" itemprop="url" rel="index">
+                    <span itemprop="name">cheat sheet</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/13/CSS-Properties-Ordering/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/13/CSS-Properties-Ordering/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
+        <p>CSS的<a href="https://github.com/airbnb/css#ordering-of-property-declarations" target="_blank" rel="external">style guide</a>有很多，重度强迫症也许对属性的排序也有要求，大部分人倾向于按类型/重要性排序， 比如按下面的分类来排序(分组)：</p>
+<ul>
+<li>Layout Properties (<code>position</code>, <code>float</code>, <code>clear</code>, <code>display</code>)</li>
+<li>Box Model Properties (<code>width</code>, <code>height</code>, <code>margin</code>, <code>padding</code>)</li>
+<li>Visual Properties (<code>color</code>, <code>background</code>, <code>border</code>, <code>box-shadow</code>)</li>
+<li>Typography Properties (<code>font-size</code>, <code>font-family</code>, <code>text-align</code>, <code>text-transform</code>)</li>
+<li>Misc Properties (<code>cursor</code>, <code>overflow</code>, <code>z-index</code>)</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.selector</span> &#123;</div><div class="line">  <span class="comment">/* Positioning */</span></div><div class="line">  <span class="attribute">position</span>: absolute;</div><div class="line">  <span class="attribute">z-index</span>: <span class="number">10</span>;</div><div class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="comment">/* Display &amp; Box Model */</span></div><div class="line">  <span class="attribute">display</span>: inline-block;</div><div class="line">  <span class="attribute">overflow</span>: hidden;</div><div class="line">  <span class="attribute">box-sizing</span>: border-box;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="number">#333</span>;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">10px</span>;</div><div class="line"></div><div class="line">  <span class="comment">/* Color */</span></div><div class="line">  <span class="attribute">background</span>: <span class="number">#000</span>;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">  </div><div class="line">  <span class="comment">/* Text */</span></div><div class="line">  <span class="attribute">font-family</span>: sans-serif;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">16px</span>;</div><div class="line">  <span class="attribute">line-height</span>: <span class="number">1.4</span>;</div><div class="line">  <span class="attribute">text-align</span>: right;</div><div class="line"></div><div class="line">  <span class="comment">/* Other */</span></div><div class="line">  <span class="attribute">cursor</span>: pointer;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2015">2015</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
         </div>
       
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/09/margin-collapse/" rel="next" title="边距塌陷(组合) margin collapse">
+                <i class="fa fa-chevron-left"></i> 边距塌陷(组合) margin collapse
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/06/22/Text-On-Image/" rel="prev" title="用CSS给图片着色以突出文本">
+                用CSS给图片着色以突出文本 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/05/10/Swift-Failable-Initializer/" itemprop="url">
-              
-                <span itemprop="name">Swift 1.2中类的可失败构造方法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-05-10T23:09:42+08:00"
-              content="2015-05-10" >
-          05-10
-        </time>
-      </div>
-
-    </header>
+      
+    </footer>
   </article>
 
 
 
-    
-
-  </section>
-
-  
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -329,6 +469,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/04/13/CSS-Properties-Ordering/"
+           data-title="CSS属性顺序惯例" data-url="https://blooddrunk.github.io/2016/04/13/CSS-Properties-Ordering/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -515,11 +663,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   

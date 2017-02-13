@@ -73,6 +73,13 @@
 
     
     <entry>
+      <title><![CDATA[CSS属性顺序惯例]]></title>
+      <url>%2F2016%2F04%2F13%2FCSS-Properties-Ordering%2F</url>
+      <content type="text"><![CDATA[CSS的style guide有很多，重度强迫症也许对属性的排序也有要求，大部分人倾向于按类型/重要性排序， 比如按下面的分类来排序(分组)： Layout Properties (position, float, clear, display) Box Model Properties (width, height, margin, padding) Visual Properties (color, background, border, box-shadow) Typography Properties (font-size, font-family, text-align, text-transform) Misc Properties (cursor, overflow, z-index) 123456789101112131415161718192021222324252627282930.selector &#123; /* Positioning */ position: absolute; z-index: 10; top: 0; right: 0; /* Display &amp; Box Model */ display: inline-block; overflow: hidden; box-sizing: border-box; width: 100px; height: 100px; padding: 10px; border: 10px solid #333; margin: 10px; /* Color */ background: #000; color: #fff; /* Text */ font-family: sans-serif; font-size: 16px; line-height: 1.4; text-align: right; /* Other */ cursor: pointer;&#125;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[边距塌陷(组合) margin collapse]]></title>
       <url>%2F2016%2F02%2F09%2Fmargin-collapse%2F</url>
       <content type="text"><![CDATA[块元素的上/下边距有时会塌陷(组合)成一个单的的边距，实际的边距大小是两个边距中值最大的一个，这就是所谓的margin collapsing 最常见的情况出现在上下相邻的两个元素，如下，虽然上面的div有25px的下边距，但由于下面的div的上边距为50px，所以两者的实际间距为50px]]></content>
