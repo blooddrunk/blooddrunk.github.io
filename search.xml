@@ -96,7 +96,7 @@
     <entry>
       <title><![CDATA[box-sizing reset]]></title>
       <url>%2F2015%2F07%2F13%2Fbox-sizing-reset%2F</url>
-      <content type="text"><![CDATA[在网站中使用border-box的box-sizing可以简化我们计算元素布局时的工作，下面是一种较为流行的做法 123456html &#123; box-sizing: border-box;&#125;*, *:before, *:after &#123; box-sizing: inherit;&#125;]]></content>
+      <content type="text"><![CDATA[在网站中使用border-box的box-sizing可以简化我们计算元素布局尺寸时的工作，下面是一种较为流行的reset做法 123456html &#123; box-sizing: border-box;&#125;*, *:before, *:after &#123; box-sizing: inherit;&#125;]]></content>
     </entry>
 
     
