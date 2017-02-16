@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Swift,iOS," />
+  <meta name="keywords" content="Javascript," />
 
 
 
@@ -84,31 +84,22 @@
 
 
 
-<meta name="description" content="一个View Controller的生命周期中会调用一系列方法，我们常常需要override这些方法来实现某些功能。
+<meta name="description" content="https://css-tricks.com/debouncing-throttling-explained-examples/
 
-初始化(通常是从storyboard开始)
-awakeFormNib(每一个来自storyboard的对象都会调用这个方法，包括Controller）
-prepareForSegue(为segue做一些准备工作)
-outlet获得值(这意味着在prepareForSegue时，d">
+Debounce和Throttle是用来控制一段时间内某个函数执行次数的类似但不相同的两种技巧。如果你曾想要控制一个scroll事件的触发频率，你很可能考虑过到底该用两者中的哪一个。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用Swift语言开发iOS8 App： 生命周期">
-<meta property="og:url" content="https://blooddrunk.github.io/2015/03/30/Developing-iOS-8-Apps-with-Swift-Lifecycle/index.html">
+<meta property="og:title" content="debounce vs throttle">
+<meta property="og:url" content="https://blooddrunk.github.io/2016/08/16/debounce-vs-throttle/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="一个View Controller的生命周期中会调用一系列方法，我们常常需要override这些方法来实现某些功能。
+<meta property="og:description" content="https://css-tricks.com/debouncing-throttling-explained-examples/
 
-初始化(通常是从storyboard开始)
-awakeFormNib(每一个来自storyboard的对象都会调用这个方法，包括Controller）
-prepareForSegue(为segue做一些准备工作)
-outlet获得值(这意味着在prepareForSegue时，d">
-<meta property="og:updated_time" content="2017-02-06T14:50:27.000Z">
+Debounce和Throttle是用来控制一段时间内某个函数执行次数的类似但不相同的两种技巧。如果你曾想要控制一个scroll事件的触发频率，你很可能考虑过到底该用两者中的哪一个。">
+<meta property="og:updated_time" content="2017-02-16T15:56:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用Swift语言开发iOS8 App： 生命周期">
-<meta name="twitter:description" content="一个View Controller的生命周期中会调用一系列方法，我们常常需要override这些方法来实现某些功能。
+<meta name="twitter:title" content="debounce vs throttle">
+<meta name="twitter:description" content="https://css-tricks.com/debouncing-throttling-explained-examples/
 
-初始化(通常是从storyboard开始)
-awakeFormNib(每一个来自storyboard的对象都会调用这个方法，包括Controller）
-prepareForSegue(为segue做一些准备工作)
-outlet获得值(这意味着在prepareForSegue时，d">
+Debounce和Throttle是用来控制一段时间内某个函数执行次数的类似但不相同的两种技巧。如果你曾想要控制一个scroll事件的触发频率，你很可能考虑过到底该用两者中的哪一个。">
 
 
 
@@ -136,13 +127,13 @@ outlet获得值(这意味着在prepareForSegue时，d">
 
 
 
-  <link rel="canonical" href="https://blooddrunk.github.io/2015/03/30/Developing-iOS-8-Apps-with-Swift-Lifecycle/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2016/08/16/debounce-vs-throttle/"/>
 
 
 
 
 
-  <title> 用Swift语言开发iOS8 App： 生命周期 | Ryder's Blog </title>
+  <title> debounce vs throttle | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -288,7 +279,7 @@ outlet获得值(这意味着在prepareForSegue时，d">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2015/03/30/Developing-iOS-8-Apps-with-Swift-Lifecycle/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2016/08/16/debounce-vs-throttle/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -312,7 +303,7 @@ outlet获得值(这意味着在prepareForSegue时，d">
             
             
               
-                用Swift语言开发iOS8 App： 生命周期
+                debounce vs throttle
               
             
           </h1>
@@ -327,8 +318,8 @@ outlet获得值(这意味着在prepareForSegue时，d">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2015-03-30T20:55:50+08:00">
-                2015-03-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-16T21:49:46+08:00">
+                2016-08-16
               </time>
             
 
@@ -338,6 +329,39 @@ outlet获得值(这意味着在prepareForSegue时，d">
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/Javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">Javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -346,8 +370,8 @@ outlet获得值(这意味着在prepareForSegue时，d">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2015/03/30/Developing-iOS-8-Apps-with-Swift-Lifecycle/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/30/Developing-iOS-8-Apps-with-Swift-Lifecycle/" itemprop="commentCount"></span>
+                <a href="/2016/08/16/debounce-vs-throttle/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/16/debounce-vs-throttle/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -373,19 +397,39 @@ outlet获得值(这意味着在prepareForSegue时，d">
       
 
       
-        <p>一个View Controller的生命周期中会调用一系列方法，我们常常需要override这些方法来实现某些功能。</p>
+        <blockquote>
+<p><a href="https://css-tricks.com/debouncing-throttling-explained-examples/" target="_blank" rel="external">https://css-tricks.com/debouncing-throttling-explained-examples/</a></p>
+</blockquote>
+<p><a href="https://lodash.com/docs/4.17.4#debounce" target="_blank" rel="external">Debounce</a>和<a href="https://lodash.com/docs/4.17.4#throttle" target="_blank" rel="external">Throttle</a>是用来控制一段时间内某个函数执行次数的类似但不相同的两种技巧。如果你曾想要控制一个<code>scroll</code>事件的触发频率，你很可能考虑过到底该用两者中的哪一个。</p>
+<a id="more"></a>
+<iframe id="cp_embed_XpQREo" src="//codepen.io/jelinenaro/embed/XpQREo?height=300&theme-id=0&slug-hash=XpQREo&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<p>简单来说：</p>
 <ul>
-<li>初始化(通常是从storyboard开始)</li>
-<li><code>awakeFormNib</code>(每一个来自storyboard的对象都会调用这个方法，包括Controller）</li>
-<li><code>prepareForSegue</code>(为segue做一些准备工作)</li>
-<li>outlet获得值(这意味着在<code>prepareForSegue</code>时，<code>destinationViewController</code>的outlet还没有值)</li>
-<li><code>viewDidLoad</code>(最常用的放置初始化代码的地方)</li>
-<li><code>viewWillAppear</code> <code>viewDidAppear</code>(view出现时调用，可能会调用多次)</li>
-<li><code>viewWillDisappear</code> <code>viewDidDisappear</code>(view消失时调用，可能会调用多次)</li>
-<li><code>viewWillLayoutSubviews</code> <code>viewDidLayoutSubviews</code>(当一个view的frame改变，需要重新布局时调用，比如呈现、旋转，<em>autolayout</em>发生在”will”和”did”之间)</li>
-<li><code>didReceiveMemoryWarning</code>(内存不足，非常罕见的情况)</li>
+<li><strong>debounce</strong> 将短时间内突然大量爆发的重复事件(比如键盘点击)限制为一个</li>
+<li><strong>throttle</strong> 保证函数每N毫秒固定执行一次。比如每200ms检查一次页面滚动的位置来触发一个CSS动画</li>
 </ul>
-
+<blockquote>
+<p>在某些情况下，<a href="https://css-tricks.com/using-requestanimationframe/" target="_blank" rel="external"><strong>requestAnimationFrame</strong></a>可发挥和<code>throttle</code>类似的作用，比如你要执行的函数用来计算并在屏幕上呈现某些元素，使用<code>requestAnimationFrame</code>可以实现更平滑的变化(动画)</p>
+</blockquote>
+<h2 id="Debounce"><a href="#Debounce" class="headerlink" title="Debounce"></a>Debounce</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_.debounce(func, [wait=0], [options=&#123;&#125;])</div></pre></td></tr></table></figure>
+<p>按照<em>Lodash</em>的解释，<a href="https://lodash.com/docs/4.17.4#debounce" target="_blank" rel="external">Debounce</a>将一个函数(<code>func</code>)的调用推迟到自它上次该<strong>Debounced</strong>函数被调用后的某个时间(<code>wait</code>)后。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Avoid costly calculations while the window size is in flux.</span></div><div class="line">jQuery(<span class="built_in">window</span>).on(<span class="string">'resize'</span>, _.debounce(calculateLayout, <span class="number">150</span>));</div><div class="line"> </div><div class="line"><span class="comment">// Invoke `sendMail` when clicked, debouncing subsequent calls.</span></div><div class="line">jQuery(element).on(<span class="string">'click'</span>, _.debounce(sendMail, <span class="number">300</span>, &#123;</div><div class="line">  <span class="string">'leading'</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">'trailing'</span>: <span class="literal">false</span></div><div class="line">&#125;));</div><div class="line"> </div><div class="line"><span class="comment">// Ensure `batchLog` is invoked once after 1 second of debounced calls.</span></div><div class="line"><span class="keyword">var</span> debounced = _.debounce(batchLog, <span class="number">250</span>, &#123; <span class="string">'maxWait'</span>: <span class="number">1000</span> &#125;);</div><div class="line"><span class="keyword">var</span> source = <span class="keyword">new</span> EventSource(<span class="string">'/stream'</span>);</div><div class="line">jQuery(source).on(<span class="string">'message'</span>, debounced);</div><div class="line"> </div><div class="line"><span class="comment">// Cancel the trailing debounced invocation.</span></div><div class="line">jQuery(<span class="built_in">window</span>).on(<span class="string">'popstate'</span>, debounced.cancel);</div></pre></td></tr></table></figure>
+<p>想象你正在一个电梯中，在电梯门正要关上的时候，另外一个人想要冲进电梯。电梯不会开始运动，而是再次打开门，这个过程会重复直到不再有人想要闯入电梯为止。如果之前<strong>Debounced</strong>函数并没被执行过，那么被延迟的事件就不会被执行。幸运的是，<code>Debounce</code>(<em>Lodash</em>的实现)有个<code>maxWait</code>的配置项控制函数能被延迟执行的最大间隔。</p>
+<p>回到最上面的例子，看看用<code>Debounce</code>的效果，连续滚动，数字只会在滚动停止后的200ms后执行一次。<code>Debounce</code>在这个例子中显然不合适（虽然设置<code>maxWait</code>可以解决这个问题)。但是却适合用于<code>resize</code>的场合，因为往往我们只知道resize发生了就够了。</p>
+<blockquote>
+<p><a href="http://stackoverflow.com/questions/24079736/confused-about-the-maxwait-option-for-lodashs-debounce-method" target="_blank" rel="external">http://stackoverflow.com/questions/24079736/confused-about-the-maxwait-option-for-lodashs-debounce-method</a></p>
+</blockquote>
+<p>scroll:</p>
+<iframe id="cp_embed_ZLZydb" src="//codepen.io/jelinenaro/embed/ZLZydb?height=300&theme-id=0&slug-hash=ZLZydb&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<p>resize(在新窗口中打开来看效果):</p>
+<iframe id="cp_embed_wgZqEB" src="//codepen.io/jelinenaro/embed/wgZqEB?height=300&theme-id=0&slug-hash=wgZqEB&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<h2 id="Throttle"><a href="#Throttle" class="headerlink" title="Throttle"></a>Throttle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_.throttle(func, [wait=0], [options=&#123;&#125;])</div></pre></td></tr></table></figure>
+<p><code>Throttle</code>则要好理解很多。<a href="https://lodash.com/docs/4.17.4#throttle" target="_blank" rel="external">Throttle</a>确保一个函数(<code>func</code>)在一段时间(<code>wait</code>)内至多被调用一次</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Avoid excessively updating the position while scrolling.</span></div><div class="line">jQuery(<span class="built_in">window</span>).on(<span class="string">'scroll'</span>, _.throttle(updatePosition, <span class="number">100</span>));</div><div class="line"> </div><div class="line"><span class="comment">// Invoke `renewToken` when the click event is fired, but not more than once every 5 minutes.</span></div><div class="line"><span class="keyword">var</span> throttled = _.throttle(renewToken, <span class="number">300000</span>, &#123; <span class="string">'trailing'</span>: <span class="literal">false</span> &#125;);</div><div class="line">jQuery(element).on(<span class="string">'click'</span>, throttled);</div><div class="line"> </div><div class="line"><span class="comment">// Cancel the trailing throttled invocation.</span></div><div class="line">jQuery(<span class="built_in">window</span>).on(<span class="string">'popstate'</span>, throttled.cancel);</div></pre></td></tr></table></figure>
+<p>最上面的例子用<code>Throttle</code>来实现，是不是正是我们想要的效果</p>
+<iframe id="cp_embed_XpQaOV" src="//codepen.io/jelinenaro/embed/XpQaOV?height=300&theme-id=0&slug-hash=XpQaOV&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><p>使用<code>requestAnimationFrame</code>来实现经过浏览器优化的、更省电的动画效果。此外，在不活动的标签页的调用会被暂停以节省资源。</p>
+<iframe id="cp_embed_OWGNom" src="//codepen.io/jelinenaro/embed/OWGNom?height=300&theme-id=0&slug-hash=OWGNom&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
       
     </div>
 
@@ -408,9 +452,7 @@ outlet获得值(这意味着在prepareForSegue时，d">
       
         <div class="post-tags">
           
-            <a href="/tags/Swift/" rel="tag"># Swift</a>
-          
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/Javascript/" rel="tag"># Javascript</a>
           
         </div>
       
@@ -419,8 +461,8 @@ outlet获得值(这意味着在prepareForSegue时，d">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/03/28/Developing-iOS-8-Apps-with-Swift-Views/" rel="next" title="用Swift语言开发iOS8 App： View">
-                <i class="fa fa-chevron-left"></i> 用Swift语言开发iOS8 App： View
+              <a href="/2016/07/22/Setup-a-Blog-on-Github-Pages-with-Hexo/" rel="next" title="使用Hexo静态博客引擎在GitHub pages上搭建博客">
+                <i class="fa fa-chevron-left"></i> 使用Hexo静态博客引擎在GitHub pages上搭建博客
               </a>
             
           </div>
@@ -429,8 +471,8 @@ outlet获得值(这意味着在prepareForSegue时，d">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/03/30/Developing-iOS-8-Apps-with-Swift-Multiple-MVCs/" rel="prev" title="用Swift语言开发iOS8 App： Multiple MVC">
-                用Swift语言开发iOS8 App： Multiple MVC <i class="fa fa-chevron-right"></i>
+              <a href="/2016/09/06/HTTP-State-Codes/" rel="prev" title="HTTP状态码一览">
+                HTTP状态码一览 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -457,8 +499,8 @@ outlet获得值(这意味着在prepareForSegue时，d">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/03/30/Developing-iOS-8-Apps-with-Swift-Lifecycle/"
-           data-title="用Swift语言开发iOS8 App： 生命周期" data-url="https://blooddrunk.github.io/2015/03/30/Developing-iOS-8-Apps-with-Swift-Lifecycle/">
+      <div class="ds-thread" data-thread-key="2016/08/16/debounce-vs-throttle/"
+           data-title="debounce vs throttle" data-url="https://blooddrunk.github.io/2016/08/16/debounce-vs-throttle/">
       </div>
     
   </div>
@@ -482,8 +524,17 @@ outlet获得值(这意味着在prepareForSegue时，d">
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -550,6 +601,22 @@ outlet获得值(这意味着在prepareForSegue时，d">
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Debounce"><span class="nav-number">1.</span> <span class="nav-text">Debounce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Throttle"><span class="nav-number">2.</span> <span class="nav-text">Throttle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#requestAnimationFrame"><span class="nav-number">3.</span> <span class="nav-text">requestAnimationFrame</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
