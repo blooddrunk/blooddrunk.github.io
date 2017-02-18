@@ -94,7 +94,7 @@ Debounce和Throttle是用来控制一段时间内某个函数执行次数的类�
 <meta property="og:description" content="https://css-tricks.com/debouncing-throttling-explained-examples/
 
 Debounce和Throttle是用来控制一段时间内某个函数执行次数的类似但不相同的两种技巧。如果你曾想要控制一个scroll事件的触发频率，你很可能考虑过到底该用两者中的哪一个。">
-<meta property="og:updated_time" content="2017-02-16T15:56:57.000Z">
+<meta property="og:updated_time" content="2017-02-16T16:11:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="debounce vs throttle">
 <meta name="twitter:description" content="https://css-tricks.com/debouncing-throttling-explained-examples/
@@ -412,7 +412,7 @@ Debounce和Throttle是用来控制一段时间内某个函数执行次数的类�
 <p>在某些情况下，<a href="https://css-tricks.com/using-requestanimationframe/" target="_blank" rel="external"><strong>requestAnimationFrame</strong></a>可发挥和<code>throttle</code>类似的作用，比如你要执行的函数用来计算并在屏幕上呈现某些元素，使用<code>requestAnimationFrame</code>可以实现更平滑的变化(动画)</p>
 </blockquote>
 <h2 id="Debounce"><a href="#Debounce" class="headerlink" title="Debounce"></a>Debounce</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_.debounce(func, [wait=0], [options=&#123;&#125;])</div></pre></td></tr></table></figure>
-<p>按照<em>Lodash</em>的解释，<a href="https://lodash.com/docs/4.17.4#debounce" target="_blank" rel="external">Debounce</a>将一个函数(<code>func</code>)的调用推迟到自它上次该<strong>Debounced</strong>函数被调用后的某个时间(<code>wait</code>)后。</p>
+<p>按照<em>Lodash</em>的解释，<a href="https://lodash.com/docs/4.17.4#debounce" target="_blank" rel="external">Debounce</a>将一个函数(<code>func</code>)的调用推迟到自上次该<strong>Debounced</strong>函数被调用后的某个时间(<code>wait</code>)后。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Avoid costly calculations while the window size is in flux.</span></div><div class="line">jQuery(<span class="built_in">window</span>).on(<span class="string">'resize'</span>, _.debounce(calculateLayout, <span class="number">150</span>));</div><div class="line"> </div><div class="line"><span class="comment">// Invoke `sendMail` when clicked, debouncing subsequent calls.</span></div><div class="line">jQuery(element).on(<span class="string">'click'</span>, _.debounce(sendMail, <span class="number">300</span>, &#123;</div><div class="line">  <span class="string">'leading'</span>: <span class="literal">true</span>,</div><div class="line">  <span class="string">'trailing'</span>: <span class="literal">false</span></div><div class="line">&#125;));</div><div class="line"> </div><div class="line"><span class="comment">// Ensure `batchLog` is invoked once after 1 second of debounced calls.</span></div><div class="line"><span class="keyword">var</span> debounced = _.debounce(batchLog, <span class="number">250</span>, &#123; <span class="string">'maxWait'</span>: <span class="number">1000</span> &#125;);</div><div class="line"><span class="keyword">var</span> source = <span class="keyword">new</span> EventSource(<span class="string">'/stream'</span>);</div><div class="line">jQuery(source).on(<span class="string">'message'</span>, debounced);</div><div class="line"> </div><div class="line"><span class="comment">// Cancel the trailing debounced invocation.</span></div><div class="line">jQuery(<span class="built_in">window</span>).on(<span class="string">'popstate'</span>, debounced.cancel);</div></pre></td></tr></table></figure>
 <p>想象你正在一个电梯中，在电梯门正要关上的时候，另外一个人想要冲进电梯。电梯不会开始运动，而是再次打开门，这个过程会重复直到不再有人想要闯入电梯为止。如果之前<strong>Debounced</strong>函数并没被执行过，那么被延迟的事件就不会被执行。幸运的是，<code>Debounce</code>(<em>Lodash</em>的实现)有个<code>maxWait</code>的配置项控制函数能被延迟执行的最大间隔。</p>
 <p>回到最上面的例子，看看用<code>Debounce</code>的效果，连续滚动，数字只会在滚动停止后的200ms后执行一次。<code>Debounce</code>在这个例子中显然不合适（虽然设置<code>maxWait</code>可以解决这个问题)。但是却适合用于<code>resize</code>的场合，因为往往我们只知道resize发生了就够了。</p>
@@ -421,7 +421,7 @@ Debounce和Throttle是用来控制一段时间内某个函数执行次数的类�
 </blockquote>
 <p>scroll:</p>
 <iframe id="cp_embed_ZLZydb" src="//codepen.io/jelinenaro/embed/ZLZydb?height=300&theme-id=0&slug-hash=ZLZydb&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
-<p>resize(在新窗口中打开来看效果):</p>
+<p>resize:</p>
 <iframe id="cp_embed_wgZqEB" src="//codepen.io/jelinenaro/embed/wgZqEB?height=300&theme-id=0&slug-hash=wgZqEB&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
 <h2 id="Throttle"><a href="#Throttle" class="headerlink" title="Throttle"></a>Throttle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_.throttle(func, [wait=0], [options=&#123;&#125;])</div></pre></td></tr></table></figure>
 <p><code>Throttle</code>则要好理解很多。<a href="https://lodash.com/docs/4.17.4#throttle" target="_blank" rel="external">Throttle</a>确保一个函数(<code>func</code>)在一段时间(<code>wait</code>)内至多被调用一次</p>
@@ -547,7 +547,7 @@ Debounce和Throttle是用来控制一段时间内某个函数执行次数的类�
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">29</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -565,7 +565,7 @@ Debounce和Throttle是用来控制一段时间内某个函数执行次数的类�
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

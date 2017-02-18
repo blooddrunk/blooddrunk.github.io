@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CSS," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="マジヤばくね">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ryder's Blog">
-<meta property="og:url" content="https://blooddrunk.github.io/tags/CSS/index.html">
+<meta name="description" content="已经有很多浏览器开始支持CSS属性postion: sticky。它是relative和fixed的position属性结合。被指定为position: sticky;的元素刚开始被视为relative，当页面滚动要将其移出viewport时，会变为’fixed’。有了它，以前我们需要借用插件或者JS才能实现的Sticky效果只需一行CSS即可实现：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS sticky position 及用纯javascript的polyfill">
+<meta property="og:url" content="https://blooddrunk.github.io/2017/02/18/position-sticky/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="マジヤばくね">
+<meta property="og:description" content="已经有很多浏览器开始支持CSS属性postion: sticky。它是relative和fixed的position属性结合。被指定为position: sticky;的元素刚开始被视为relative，当页面滚动要将其移出viewport时，会变为’fixed’。有了它，以前我们需要借用插件或者JS才能实现的Sticky效果只需一行CSS即可实现：">
+<meta property="og:updated_time" content="2017-02-18T06:21:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ryder's Blog">
-<meta name="twitter:description" content="マジヤばくね">
+<meta name="twitter:title" content="CSS sticky position 及用纯javascript的polyfill">
+<meta name="twitter:description" content="已经有很多浏览器开始支持CSS属性postion: sticky。它是relative和fixed的position属性结合。被指定为position: sticky;的元素刚开始被视为relative，当页面滚动要将其移出viewport时，会变为’fixed’。有了它，以前我们需要借用插件或者JS才能实现的Sticky效果只需一行CSS即可实现：">
 
 
 
@@ -120,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://blooddrunk.github.io/tags/CSS/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2017/02/18/position-sticky/"/>
 
 
 
 
 
-  <title> 标签: CSS | Ryder's Blog </title>
+  <title> CSS sticky position 及用纯javascript的polyfill | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -147,7 +148,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,186 +263,202 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        CSS
-        <small>标签</small>
-      </h2>
-    </div>
-
+  <div id="posts" class="posts-expand">
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/18/position-sticky/" itemprop="url">
-              
-                <span itemprop="name">CSS sticky position 及用纯javascript的polyfill</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-18T13:50:18+08:00"
-              content="2017-02-18" >
-          02-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/23/CSS-Triangle/" itemprop="url">
-              
-                <span itemprop="name">使用CSS实现三角形</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-23T22:52:13+08:00"
-              content="2016-12-23" >
-          12-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/06/22/Text-On-Image/" itemprop="url">
-              
-                <span itemprop="name">用CSS给图片着色以突出文本</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-06-22T22:11:00+08:00"
-              content="2016-06-22" >
-          06-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/04/13/CSS-Properties-Ordering/" itemprop="url">
-              
-                <span itemprop="name">CSS属性顺序惯例</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-04-13T22:48:05+08:00"
-              content="2016-04-13" >
-          04-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/02/09/margin-collapse/" itemprop="url">
-              
-                <span itemprop="name">边距塌陷(组合) margin collapse</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-02-09T23:06:33+08:00"
-              content="2016-02-09" >
-          02-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/07/13/box-sizing-reset/" itemprop="url">
-              
-                <span itemprop="name">box-sizing reset</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-07-13T23:19:01+08:00"
-              content="2015-07-13" >
-          07-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-  </div>
 
   
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2017/02/18/position-sticky/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Ryder Xie">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Ryder's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Ryder's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS sticky position 及用纯javascript的polyfill
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T13:50:18+08:00">
+                2017-02-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/18/position-sticky/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/18/position-sticky/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>已经有很多浏览器开始支持CSS属性<a href="http://caniuse.com/#feat=css-sticky" target="_blank" rel="external">postion: sticky</a>。它是<code>relative</code>和<code>fixed</code>的<code>position</code>属性结合。被指定为<code>position: sticky;</code>的元素刚开始被视为<code>relative</code>，当页面滚动要将其移出viewport时，会变为’fixed’。有了它，以前我们需要借用插件或者JS才能实现的<em>Sticky</em>效果只需一行CSS即可实现：</p>
+<a id="more"></a>
+<iframe id="cp_embed_RKmybx" src="//codepen.io/jelinenaro/embed/RKmybx?height=300&theme-id=0&slug-hash=RKmybx&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<p>如果使用javascript，最简单的做法可能是(<a href="https://www.sitepoint.com/css-position-sticky-introduction-polyfills/" target="_blank" rel="external">https://www.sitepoint.com/css-position-sticky-introduction-polyfills/</a>)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> menu = <span class="built_in">document</span>.querySelector(<span class="string">'.menu'</span>)</div><div class="line"><span class="keyword">var</span> menuPosition = menu.getBoundingClientRect().top;</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.pageYOffset &gt;= menuPosition) &#123;</div><div class="line">        menu.style.position = <span class="string">'fixed'</span>;</div><div class="line">        menu.style.top = <span class="string">'0px'</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        menu.style.position = <span class="string">'static'</span>;</div><div class="line">        menu.style.top = <span class="string">''</span>;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>可是仔细观察的话，在元素从<code>static</code>变为<code>fixed</code>的一瞬间，由于它脱离了正常的文档流，会向上“跳过”几个像素的高度：</p>
+<iframe id="cp_embed_pRmVoX" src="//codepen.io/jelinenaro/embed/pRmVoX?height=300&theme-id=0&slug-hash=pRmVoX&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<p>这个高度大约等于该元素本身的高度(与元素本身的<code>margin</code>, <code>border</code>等盒模型属性相关)。一个可能的解决方法是，手动插入一个和该元素大小相等的展位元素。下面是改进的代码:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> menu = <span class="built_in">document</span>.querySelector(<span class="string">'.menu'</span>);</div><div class="line"><span class="keyword">var</span> menuPosition = menu.getBoundingClientRect();</div><div class="line"><span class="keyword">var</span> placeholder = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">placeholder.style.width = menuPosition.width + <span class="string">'px'</span>;</div><div class="line">placeholder.style.height = menuPosition.height + <span class="string">'px'</span>;</div><div class="line"><span class="keyword">var</span> isAdded = <span class="literal">false</span>;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">'scroll'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="built_in">window</span>.pageYOffset &gt;= menuPosition.top &amp;&amp; !isAdded) &#123;</div><div class="line">        menu.classList.add(<span class="string">'sticky'</span>);</div><div class="line">        menu.parentNode.insertBefore(placeholder, menu);</div><div class="line">        isAdded = <span class="literal">true</span>;</div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.pageYOffset &lt; menuPosition.top &amp;&amp; isAdded) &#123;</div><div class="line">        menu.classList.remove(<span class="string">'sticky'</span>);</div><div class="line">        menu.parentNode.removeChild(placeholder);</div><div class="line">        isAdded = <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>问题解决了:</p>
+<iframe id="cp_embed_qRGYbr" src="//codepen.io/jelinenaro/embed/qRGYbr?height=300&theme-id=0&slug-hash=qRGYbr&default-tab=result" scrolling="no" frameborder="no" height="300" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/06/Cancelable-Promise/" rel="next" title="Cancelable Promise">
+                <i class="fa fa-chevron-left"></i> Cancelable Promise
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -449,6 +466,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/18/position-sticky/"
+           data-title="CSS sticky position 及用纯javascript的polyfill" data-url="https://blooddrunk.github.io/2017/02/18/position-sticky/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -635,6 +660,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
