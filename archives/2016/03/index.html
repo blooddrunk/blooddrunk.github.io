@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="React,ES6," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,22 +84,15 @@
 
 
 
-<meta name="description" content="使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
-
-“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmo">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Cancelable Promise">
-<meta property="og:url" content="https://blooddrunk.github.io/2017/02/06/Cancelable-Promise/index.html">
+<meta name="description" content="マジヤばくね">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ryder's Blog">
+<meta property="og:url" content="https://blooddrunk.github.io/archives/2016/03/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
-
-“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmo">
-<meta property="og:updated_time" content="2017-02-08T13:35:59.000Z">
+<meta property="og:description" content="マジヤばくね">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cancelable Promise">
-<meta name="twitter:description" content="使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
-
-“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmo">
+<meta name="twitter:title" content="Ryder's Blog">
+<meta name="twitter:description" content="マジヤばくね">
 
 
 
@@ -127,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://blooddrunk.github.io/2017/02/06/Cancelable-Promise/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/archives/2016/03/"/>
 
 
 
 
 
-  <title> Cancelable Promise | Ryder's Blog </title>
+  <title> 归档 | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -154,7 +147,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,209 +262,66 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2017/02/06/Cancelable-Promise/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Ryder Xie">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Ryder's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Ryder's Blog" src="">
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 30 篇日志。 继续努力。
     </span>
-  </span>
 
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                Cancelable Promise
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-06T23:49:54+08:00">
-                2017-02-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/Javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">Javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/02/06/Cancelable-Promise/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/06/Cancelable-Promise/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
 
       
       
-
       
-        <p>使用React时难免会需要在异步操作返回时调用<code>setState()</code>，如果此时该Component已经Unmount, React会抛出类似下面的错误：</p>
-<blockquote>
-<p>“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmounted component. This is a no-op. Please check the code for the ContactPage component.”</p>
-</blockquote>
-<p>解决这个问题最简单的方法就是在Lifecyle事件中手动设置并在调用<code>setState()</code>前检查某个标记位：</p>
-<figure class="highlight javascript"><figcaption><span>inside a component</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">componentDidMount() &#123;</div><div class="line">  <span class="keyword">this</span>._isMounted = <span class="literal">true</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">componentWillUnmount() &#123;</div><div class="line">  <span class="keyword">this</span>._isMounted = <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用setState时</span></div><div class="line"><span class="keyword">if</span>(<span class="keyword">this</span>._isMounted) &#123;</div><div class="line">  <span class="keyword">this</span>.setState(...)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>介于现在普遍都在使用<strong>Fetch API</strong>和<strong>Promise</strong>，更好的办法是使用可被Cancel的Promise，一个简单的实现如下：</p>
-<a id="more"></a>
-<figure class="highlight javascript"><figcaption><span>cancelable promise</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> makeCancelable = <span class="function">(<span class="params">promise</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> hasCanceled_ = <span class="literal">false</span></div><div class="line"></div><div class="line">  <span class="keyword">const</span> wrappedPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    promise.then(<span class="function">(<span class="params">val</span>) =&gt;</span></div><div class="line">      hasCanceled_ ? reject(&#123;<span class="attr">isCanceled</span>: <span class="literal">true</span>&#125;) : resolve(val)</div><div class="line">    )</div><div class="line">    promise.catch(<span class="function">(<span class="params">error</span>) =&gt;</span></div><div class="line">      hasCanceled_ ? reject(&#123;<span class="attr">isCanceled</span>: <span class="literal">true</span>&#125;) : reject(error)</div><div class="line">    )</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">promise</span>: wrappedPromise,</div><div class="line">    cancel() &#123;</div><div class="line">      hasCanceled_ = <span class="literal">true</span>;</div><div class="line">    &#125;,</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>通过在原来返回Promise的调用外包裹一层<em>Higher Order Function</em>(虽然实际上返回的是一个新的对象), 然后在必要时(<code>componentWillUnmount</code>)取消掉:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> cancelablePromise = makeCancelable(</div><div class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> component.setState(&#123;...&#125;&#125;))</div><div class="line">);</div><div class="line"></div><div class="line">cancelablePromise</div><div class="line">  .promise</div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'resolved'</span>))</div><div class="line">  .catch(<span class="function">(<span class="params">reason</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'isCanceled'</span>, reason.isCanceled));</div><div class="line"></div><div class="line">cancelablePromise.cancel(); <span class="comment">// Cancel the promise</span></div></pre></td></tr></table></figure>
-<p><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.l7d37jad3" target="_blank" rel="external">Eric Elliott</a>大神给出了更完善的实现: <a href="https://github.com/ericelliott/speculation" target="_blank" rel="external">https://github.com/ericelliott/speculation</a></p>
 
-      
-    </div>
-
-    <div>
       
         
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/React/" rel="tag"># React</a>
-          
-            <a href="/tags/ES6/" rel="tag"># ES6</a>
-          
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
         </div>
       
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/01/01/Use-React-Motion-for-Fade-in-out-effects-in-React/" rel="next" title="使用React Motion在React中实现淡入/淡出效果">
-                <i class="fa fa-chevron-left"></i> 使用React Motion在React中实现淡入/淡出效果
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/18/position-sticky/" rel="prev" title="CSS sticky position 及用纯javascript的polyfill">
-                CSS sticky position 及用纯javascript的polyfill <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
-      
-    </footer>
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2016/03/21/tricks-with-before-and-after/" itemprop="url">
+              
+                <span itemprop="name">伪元素::before ::after的一些例子</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-03-21T23:11:41+08:00"
+              content="2016-03-21" >
+          03-21
+        </time>
+      </div>
+
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+    
+
+  </section>
+
+  
+
 
           
           </div>
@@ -479,14 +329,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2017/02/06/Cancelable-Promise/"
-           data-title="Cancelable Promise" data-url="https://blooddrunk.github.io/2017/02/06/Cancelable-Promise/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -673,9 +515,11 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   

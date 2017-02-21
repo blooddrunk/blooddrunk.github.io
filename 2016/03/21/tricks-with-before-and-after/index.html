@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="React,ES6," />
+  <meta name="keywords" content="CSS," />
 
 
 
@@ -84,22 +84,16 @@
 
 
 
-<meta name="description" content="使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
-
-“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmo">
+<meta name="description" content="Tooltips绝对定位和attr方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cancelable Promise">
-<meta property="og:url" content="https://blooddrunk.github.io/2017/02/06/Cancelable-Promise/index.html">
+<meta property="og:title" content="伪元素::before ::after的一些例子">
+<meta property="og:url" content="https://blooddrunk.github.io/2016/03/21/tricks-with-before-and-after/index.html">
 <meta property="og:site_name" content="Ryder's Blog">
-<meta property="og:description" content="使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
-
-“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmo">
-<meta property="og:updated_time" content="2017-02-08T13:35:59.000Z">
+<meta property="og:description" content="Tooltips绝对定位和attr方法">
+<meta property="og:updated_time" content="2017-02-21T15:56:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cancelable Promise">
-<meta name="twitter:description" content="使用React时难免会需要在异步操作返回时调用setState()，如果此时该Component已经Unmount, React会抛出类似下面的错误：
-
-“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmo">
+<meta name="twitter:title" content="伪元素::before ::after的一些例子">
+<meta name="twitter:description" content="Tooltips绝对定位和attr方法">
 
 
 
@@ -127,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="https://blooddrunk.github.io/2017/02/06/Cancelable-Promise/"/>
+  <link rel="canonical" href="https://blooddrunk.github.io/2016/03/21/tricks-with-before-and-after/"/>
 
 
 
 
 
-  <title> Cancelable Promise | Ryder's Blog </title>
+  <title> 伪元素::before ::after的一些例子 | Ryder's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +273,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2017/02/06/Cancelable-Promise/">
+  <link itemprop="mainEntityOfPage" href="https://blooddrunk.github.io/2016/03/21/tricks-with-before-and-after/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Ryder Xie">
@@ -303,7 +297,7 @@
             
             
               
-                Cancelable Promise
+                伪元素::before ::after的一些例子
               
             
           </h1>
@@ -318,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-06T23:49:54+08:00">
-                2017-02-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-03-21T23:11:41+08:00">
+                2016-03-21
               </time>
             
 
@@ -352,8 +346,8 @@
                 
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/Javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">Javascript</span>
+                  <a href="/categories/前端/CSS/" itemprop="url" rel="index">
+                    <span itemprop="name">CSS</span>
                   </a>
                 </span>
 
@@ -370,8 +364,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/06/Cancelable-Promise/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/06/Cancelable-Promise/" itemprop="commentCount"></span>
+                <a href="/2016/03/21/tricks-with-before-and-after/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/21/tricks-with-before-and-after/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -397,19 +391,43 @@
       
 
       
-        <p>使用React时难免会需要在异步操作返回时调用<code>setState()</code>，如果此时该Component已经Unmount, React会抛出类似下面的错误：</p>
-<blockquote>
-<p>“Warning: setState(…): Can only update a mounted or mounting component. This usually means you called setState() on an unmounted component. This is a no-op. Please check the code for the ContactPage component.”</p>
-</blockquote>
-<p>解决这个问题最简单的方法就是在Lifecyle事件中手动设置并在调用<code>setState()</code>前检查某个标记位：</p>
-<figure class="highlight javascript"><figcaption><span>inside a component</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">componentDidMount() &#123;</div><div class="line">  <span class="keyword">this</span>._isMounted = <span class="literal">true</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">componentWillUnmount() &#123;</div><div class="line">  <span class="keyword">this</span>._isMounted = <span class="literal">false</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 调用setState时</span></div><div class="line"><span class="keyword">if</span>(<span class="keyword">this</span>._isMounted) &#123;</div><div class="line">  <span class="keyword">this</span>.setState(...)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>介于现在普遍都在使用<strong>Fetch API</strong>和<strong>Promise</strong>，更好的办法是使用可被Cancel的Promise，一个简单的实现如下：</p>
+        <h2 id="Tooltips"><a href="#Tooltips" class="headerlink" title="Tooltips"></a>Tooltips</h2><p>绝对定位和<code>attr</code>方法</p>
+<iframe id="cp_embed_VPoXMZ" src="//codepen.io/jelinenaro/embed/VPoXMZ?height=200&theme-id=0&slug-hash=VPoXMZ&default-tab=result" scrolling="no" frameborder="no" height="200" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
 <a id="more"></a>
-<figure class="highlight javascript"><figcaption><span>cancelable promise</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> makeCancelable = <span class="function">(<span class="params">promise</span>) =&gt;</span> &#123;</div><div class="line">  <span class="keyword">let</span> hasCanceled_ = <span class="literal">false</span></div><div class="line"></div><div class="line">  <span class="keyword">const</span> wrappedPromise = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</div><div class="line">    promise.then(<span class="function">(<span class="params">val</span>) =&gt;</span></div><div class="line">      hasCanceled_ ? reject(&#123;<span class="attr">isCanceled</span>: <span class="literal">true</span>&#125;) : resolve(val)</div><div class="line">    )</div><div class="line">    promise.catch(<span class="function">(<span class="params">error</span>) =&gt;</span></div><div class="line">      hasCanceled_ ? reject(&#123;<span class="attr">isCanceled</span>: <span class="literal">true</span>&#125;) : reject(error)</div><div class="line">    )</div><div class="line">  &#125;);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">promise</span>: wrappedPromise,</div><div class="line">    cancel() &#123;</div><div class="line">      hasCanceled_ = <span class="literal">true</span>;</div><div class="line">    &#125;,</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>通过在原来返回Promise的调用外包裹一层<em>Higher Order Function</em>(虽然实际上返回的是一个新的对象), 然后在必要时(<code>componentWillUnmount</code>)取消掉:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> cancelablePromise = makeCancelable(</div><div class="line">  <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="params">r</span> =&gt;</span> component.setState(&#123;...&#125;&#125;))</div><div class="line">);</div><div class="line"></div><div class="line">cancelablePromise</div><div class="line">  .promise</div><div class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'resolved'</span>))</div><div class="line">  .catch(<span class="function">(<span class="params">reason</span>) =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'isCanceled'</span>, reason.isCanceled));</div><div class="line"></div><div class="line">cancelablePromise.cancel(); <span class="comment">// Cancel the promise</span></div></pre></td></tr></table></figure>
-<p><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.l7d37jad3" target="_blank" rel="external">Eric Elliott</a>大神给出了更完善的实现: <a href="https://github.com/ericelliott/speculation" target="_blank" rel="external">https://github.com/ericelliott/speculation</a></p>
-
+<h2 id="Counter"><a href="#Counter" class="headerlink" title="Counter"></a>Counter</h2><p>CSS <em>Counter</em>本质上是由CSS维护的用来跟踪某些CSS定义被使用次数的变量。使用<em>Counter</em>可以使用纯CSS实现各种丰富的分段计数等效果。使用到的属性:</p>
+<ul>
+<li><code>counter-reset</code> - 创建或者重置一个counter</li>
+<li><code>counter-increment</code> - 增加一个counter的数字值</li>
+<li><code>content</code> - 在页面中插入生成的内容</li>
+<li><code>counter()</code> 或者 <code>counters()</code> 函数 - 返回某个counter的值</li>
+</ul>
+<blockquote>
+<p><code>counter()</code> 函数可以接受第二个参数，参数值同 <code>list-style-type</code> 的值，从而可以让 counter 的值不只是数字:</p>
+<ul>
+<li>disc (• • •)</li>
+<li>circle (○ ○ ○)</li>
+<li>square (▪ ▪ ▪)</li>
+<li>decimal (1 2 3)</li>
+<li>decimal-leading-zero (01, 02, 03)</li>
+<li>lower-roman (i ii iii)</li>
+<li>upper-roman (I II III)</li>
+<li>lower-greek (α β γ)</li>
+<li>lower-latin (a b c)</li>
+<li>upper-latin (A B C)</li>
+<li>armenian (Ա Բ Գ)</li>
+<li>georgian (ა ბ გ)</li>
+<li>lower-alpha (a b c)</li>
+<li>upper-alpha (A B C)</li>
+</ul>
+</blockquote>
+<iframe id="cp_embed_bgXvZY" src="//codepen.io/jelinenaro/embed/bgXvZY?height=200&theme-id=0&slug-hash=bgXvZY&default-tab=result" scrolling="no" frameborder="no" height="200" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<p>使用 <code>counters()</code> 的多级标题</p>
+<iframe id="cp_embed_rjXvJN" src="//codepen.io/jelinenaro/embed/rjXvJN?height=200&theme-id=0&slug-hash=rjXvJN&default-tab=result" scrolling="no" frameborder="no" height="200" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img></h2><blockquote>
+<p><a href="https://bitsofco.de/styling-broken-images/" target="_blank" rel="external">https://bitsofco.de/styling-broken-images/</a></p>
+</blockquote>
+<p>图片加载失败时，提供更生动的显示效果</p>
+<iframe id="cp_embed_YNmLOr" src="//codepen.io/jelinenaro/embed/YNmLOr?height=200&theme-id=0&slug-hash=YNmLOr&default-tab=result" scrolling="no" frameborder="no" height="200" allowtransparency="true" allowfullscreen="true" class="cp_embed_iframe" style="width: 100%; overflow: hidden;"></iframe>
       
     </div>
 
@@ -432,9 +450,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/React/" rel="tag"># React</a>
-          
-            <a href="/tags/ES6/" rel="tag"># ES6</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
         </div>
       
@@ -443,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/01/Use-React-Motion-for-Fade-in-out-effects-in-React/" rel="next" title="使用React Motion在React中实现淡入/淡出效果">
-                <i class="fa fa-chevron-left"></i> 使用React Motion在React中实现淡入/淡出效果
+              <a href="/2016/02/09/margin-collapse/" rel="next" title="边距塌陷(组合) margin collapse">
+                <i class="fa fa-chevron-left"></i> 边距塌陷(组合) margin collapse
               </a>
             
           </div>
@@ -453,8 +469,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/18/position-sticky/" rel="prev" title="CSS sticky position 及用纯javascript的polyfill">
-                CSS sticky position 及用纯javascript的polyfill <i class="fa fa-chevron-right"></i>
+              <a href="/2016/04/13/CSS-Properties-Ordering/" rel="prev" title="CSS属性顺序惯例">
+                CSS属性顺序惯例 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -481,8 +497,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/06/Cancelable-Promise/"
-           data-title="Cancelable Promise" data-url="https://blooddrunk.github.io/2017/02/06/Cancelable-Promise/">
+      <div class="ds-thread" data-thread-key="2016/03/21/tricks-with-before-and-after/"
+           data-title="伪元素::before ::after的一些例子" data-url="https://blooddrunk.github.io/2016/03/21/tricks-with-before-and-after/">
       </div>
     
   </div>
@@ -506,8 +522,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -574,6 +599,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tooltips"><span class="nav-number">1.</span> <span class="nav-text">Tooltips</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Counter"><span class="nav-number">2.</span> <span class="nav-text">Counter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">3.</span> <span class="nav-text"></span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
