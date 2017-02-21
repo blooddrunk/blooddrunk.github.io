@@ -29,7 +29,7 @@ date: 2016-08-16 21:49:46
 _.debounce(func, [wait=0], [options={}])
 ```
 
-按照*Lodash*的解释，[Debounce](https://lodash.com/docs/4.17.4#debounce)将一个函数(`func`)的调用推迟到自它上次该**Debounced**函数被调用后的某个时间(`wait`)后。
+按照*Lodash*的解释，[Debounce](https://lodash.com/docs/4.17.4#debounce)将一个函数(`func`)的调用推迟到自上次该**Debounced**函数被调用后的某个时间(`wait`)后。
 
 ```javascript
 // Avoid costly calculations while the window size is in flux.
@@ -60,7 +60,7 @@ scroll:
 
 {% codepen jelinenaro ZLZydb 0 result 300 %}
 
-resize(在新窗口中打开来看效果):
+resize:
 
 {% codepen jelinenaro wgZqEB 0 result 300 %}
 
