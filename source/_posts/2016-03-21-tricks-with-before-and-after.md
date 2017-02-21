@@ -48,7 +48,7 @@ CSS *Counter*本质上是由CSS维护的用来跟踪某些CSS定义被使用次�
 {% codepen jelinenaro rjXvJN 0 result 200 %}
 
 
-## <img>
+## img
 
 > https://bitsofco.de/styling-broken-images/
 
