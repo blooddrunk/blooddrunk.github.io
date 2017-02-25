@@ -96,7 +96,7 @@
     <entry>
       <title><![CDATA[伪元素::before ::after的一些例子]]></title>
       <url>%2F2016%2F03%2F21%2Ftricks-with-before-and-after%2F</url>
-      <content type="text"><![CDATA[Tooltips绝对定位和attr方法 CounterCSS Counter本质上是由CSS维护的用来跟踪某些CSS定义被使用次数的变量。使用Counter可以使用纯CSS实现各种丰富的分段计数等效果。使用到的属性: counter-reset - 创建或者重置一个counter counter-increment - 增加一个counter的数字值 content - 在页面中插入生成的内容 counter() 或者 counters() 函数 - 返回某个counter的值 counter() 函数可以接受第二个参数，参数值同 list-style-type 的值，从而可以让 counter 的值不只是数字: disc (• • •) circle (○ ○ ○) square (▪ ▪ ▪) decimal (1 2 3) decimal-leading-zero (01, 02, 03) lower-roman (i ii iii) upper-roman (I II III) lower-greek (α β γ) lower-latin (a b c) upper-latin (A B C) armenian (Ա Բ Գ) georgian (ა ბ გ) lower-alpha (a b c) upper-alpha (A B C) 使用 counters() 的多级标题 img https://bitsofco.de/styling-broken-images/ 图片加载失败时，提供更生动的显示效果]]></content>
+      <content type="text"><![CDATA[Tooltips绝对定位和attr方法 CounterCSS Counter本质上是由CSS维护的用来跟踪某些CSS定义被使用次数的变量。使用Counter可以使用纯CSS实现各种丰富的分段计数等效果。使用到的属性: counter-reset - 创建或者重置一个counter counter-increment - 增加一个counter的数字值 content - 在页面中插入生成的内容 counter() 或者 counters() 函数 - 返回某个counter的值 counter() 函数可以接受第二个参数，参数值同 list-style-type 的值，从而可以让 counter 的值不只是数字: disc (• • •) circle (○ ○ ○) square (▪ ▪ ▪) decimal (1 2 3) decimal-leading-zero (01, 02, 03) lower-roman (i ii iii) upper-roman (I II III) lower-greek (α β γ) lower-latin (a b c) upper-latin (A B C) armenian (Ա Բ Գ) georgian (ა ბ გ) lower-alpha (a b c) upper-alpha (A B C) 使用 counters() 的多级标题 img https://bitsofco.de/styling-broken-images/ 图片加载失败时，提供更生动的显示效果 把伪元素设为 absolute 覆盖图片本身，加一点特效]]></content>
     </entry>
 
     
